@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -53,8 +53,8 @@ gem 'less-rails'
 # App Server
 gem 'puma'
 
-# Haml
-gem 'haml-rails'
+# Haml（使わない）
+# gem 'haml-rails'
 
 # Assets log cleaner
 gem 'quiet_assets'
@@ -92,12 +92,11 @@ gem 'figaro'
 # Rack Profiler
 gem 'rack-mini-profiler'
 
-# Hash extensions
-gem 'hashie'
+# Hash extensionsgem 'hashie'
 
 group :development do
   # Converter erb => haml
-  gem 'erb2haml'
+  # gem 'erb2haml'
 end
 
 

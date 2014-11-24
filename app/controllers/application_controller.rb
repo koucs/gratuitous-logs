@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # sometokenの所に元々のトークンをセット（よくわからない）
-  TestApp::Application.config.secret_key_base = ENV['SECRET_KEY_BASE'] || 'sometoken'
+  # TestApp::Application.config.secret_key_base = ENV['SECRET_KEY_BASE'] || 'sometoken'
 
 end
