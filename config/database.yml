@@ -69,7 +69,7 @@ production:
   # database: gratuitous_log_production
   # password: <%= ENV['GRATUITOUS_LOG_DATABASE_PASSWORD'] %>
   # username: acto_mini
-  host: localhost
+  host: ec2-54-243-245-159.compute-1.amazonaws.com
   database: da06e97glqa5dq
   port: 5432
   username: xfzrajpypncwoi
