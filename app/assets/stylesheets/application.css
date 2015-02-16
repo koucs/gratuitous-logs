@@ -25,3 +25,8 @@ header h1 {
 header {
    border-bottom: #ffffff 3px dashed ;
 }
+
+
+article {
+    padding: 0 50px;
+}
