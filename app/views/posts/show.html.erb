@@ -8,37 +8,8 @@
   <%= @post.contents %>
 </p>
 
+<%= render partial: "comments/form", locals: { post: @post } %>
 
-<h2>ADD Comments</h2>
-<%= form_for( [@post, @post.comments.build] ) do |f| %>
-  <p>
-    <%= f.label :commentator, "Commentator" %><br />
-    <%= f.text_field :commentator %>
-  </p>
-
-  <p>
-    <%= f.label :body, "Comment" %><br />
-    <%= f.text_area :body, cols: 60, rows: 2 %>
-  </p>
-
-  <p>
-    <%= f.submit  "Submit Comment !" %>
-  </p>
-<% end %>
-
-<h2>Comment List</h2>
-    <table>
-        <tr>
-            <th>Commentator</th>
-            <th>Body</th>
-        </tr>
-        <% @post.comments.each do |comment| %>
-        <tr>
-            <td><%= comment.commentator %></td>
-            <td><%= simple_format comment.body %></td>
-        </tr>
-        <% end %>
-    </table>
-
+<%= render partial: "comments/list", locals: { comments: @post.comments.where.not(id: nil) } %>
 
 <%= link_to 'Back', posts_path %>
