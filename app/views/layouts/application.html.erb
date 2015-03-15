@@ -12,13 +12,30 @@
 </head>
 <body>
 
-    <header>
-        <h1>Gratuitous-Log</h1>
-    </header>
+    <div id="container">
 
-    <article>
-        <%= yield %>
-    </article>
+      <header id="header">
+        <h1>Gratuitous-Log</h1>
+        <%= render 'layouts/navigation' %>
+      </header>
+
+      <div id="main">
+
+        <div id="inner">
+          <%= yield %>
+        </div><!-- #inner -->
+
+      </div><!-- #main -->
+
+      <div id="sub">
+        サブコンテンツの内容
+      </div><!-- #sub -->
+
+      <footer>
+        <p><small>© copyright 2015 Acto All Rights Reserved. </small></p>
+      </footer>
+
+    </div><!-- #container -->
 
 </body>
 </html>
