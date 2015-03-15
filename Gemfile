@@ -143,3 +143,6 @@ group :production, :staging do
   gem 'rails_12factor'
 end
 
+# Syntax Highlight
+gem "redcarpet" # parse Markdown
+gem "pygments.rb" # parse

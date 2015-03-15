@@ -6,7 +6,16 @@
 <p>
   <strong>CONTENTS：</strong>
   <%= @post.contents %>
+  <strong>syntax highlight</strong>
+  <%= markdown(@test_code).html_safe %>
+
 </p>
+
+  <div class="codehighlight,">
+    xxx
+    sss
+  </div>
+
 
 <%= render partial: "comments/form", locals: { post: @post } %>
 

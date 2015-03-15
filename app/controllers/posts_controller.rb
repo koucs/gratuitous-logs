@@ -19,6 +19,21 @@ class PostsController < ApplicationController
 
     def show
         @post = Post.find(params[:id])
+        @test_code =<<-EOS
+ ``` ruby
+def exit
+    puts "Hello, world!"
+end
+```
+
+``` c
+int main(){
+    int ad;
+    exit
+}
+```
+
+        EOS
     end
 
     def edit
