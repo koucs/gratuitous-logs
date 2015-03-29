@@ -5,16 +5,12 @@
 
 <p>
   <strong>CONTENTS：</strong>
-  <%= @post.contents %>
-  <strong>syntax highlight</strong>
-  <%= markdown(@test_code).html_safe %>
+  <%= markdown(@post.contents).html_safe %>
 
 </p>
 
-  <div class="codehighlight,">
-    xxx
-    sss
-  </div>
+
+  <%= Pygments.highlight(@test_code, lexer: "rb".to_sym, options: {linespans:"line"} ).html_safe %>
 
 
 <%= render partial: "comments/form", locals: { post: @post } %>

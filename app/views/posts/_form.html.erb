@@ -10,6 +10,14 @@
     </div>
   <% end %>
 
+
+  <div id="preview">
+    <% if params[:preview_button] %>
+      <%= markdown(@post.contents).html_safe %>
+    <% end %>
+  </div>
+
+
   <p>
     <%= f.label :title, "TITLE" %><br>
     <%= f.text_field :title %>
@@ -21,6 +29,7 @@
   </p>
 
   <p>
-    <%= f.submit "save" %>
+    <%= f.submit "Save" %>
+    <%= f.submit "Preview", name: "preview_button" %>
   </p>
 <% end %>

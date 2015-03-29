@@ -10,29 +10,31 @@ class PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
 
-        if @post.save
-           redirect_to @post
-       else
+        if params[:preview_button] || !@post.save
             render 'new'
-        end
+        else
+           redirect_to @post
+       end
+
     end
 
     def show
         @post = Post.find(params[:id])
         @test_code =<<-EOS
- ``` ruby
-def exit
-    puts "Hello, world!"
-end
-```
+ ``` rb
+import pika
 
-``` c
-int main(){
-    int ad;
-    exit
-}
-```
+class MessageQueueService(object):
 
+    def log(self, message, queue, host, direction=MessageQueueLog.RECEIVED):
+        message_log = MessageQueueLog.objects.create(
+                queue=queue,
+                host=host,
+                message=message,
+                direction=direction
+            )
+        return message_log
+```
         EOS
     end
 
