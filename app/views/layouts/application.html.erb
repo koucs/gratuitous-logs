@@ -17,9 +17,20 @@
     <div id="container">
 
       <header id="header">
-        <h1><%= link_to "Gratuitous-Log", root_path %></h1>
+
+        <nav id="fixed-navi">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Articles</a></li>
+            <li><a href="#">Applications</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+
         <%= render 'layouts/navigation' %>
-      </header>
+
+        <img src="<%= asset_path("40.png") %>" width="1440">
+      </header><!-- #header -->
 
       <div id="main">
 
@@ -30,14 +41,15 @@
       </div><!-- #main -->
 
       <div id="sub">
-        サブコンテンツの内容
+        Popular Posts
       </div><!-- #sub -->
+
+    </div><!-- #container -->
 
       <footer>
         <p><small>© copyright 2015 Acto All Rights Reserved. </small></p>
       </footer>
 
-    </div><!-- #container -->
 
 </body>
 </html>
