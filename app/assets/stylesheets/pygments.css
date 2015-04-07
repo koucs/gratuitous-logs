@@ -8,7 +8,7 @@
   border: solid 2px #eee;
   border-radius: 2px;
   background-color: #333;
-  overflow: scroll;
+  xoverflow: scroll;
 }
 .highlight .hll { background-color: #333333 }
 .highlight .c { color: #008800; font-style: italic; background-color: #0f140f } /* Comment */

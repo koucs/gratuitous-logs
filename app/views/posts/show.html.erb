@@ -10,9 +10,6 @@
 </p>
 
 
-  <%= Pygments.highlight(@test_code, lexer: "rb".to_sym, options: {linespans:"line"} ).html_safe %>
-
-
 <%= render partial: "comments/form", locals: { post: @post } %>
 
 <%= render partial: "comments/list", locals: { comments: @post.comments.where.not(id: nil) } %>
