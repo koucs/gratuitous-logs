@@ -146,3 +146,8 @@ end
 # Syntax Highlight
 gem "redcarpet" # parse Markdown
 gem "pygments.rb" # parse
+
+# Tag Function
+gem 'acts-as-taggable-on', '~> 3.4'
+gem 'jquery-ui-rails'
+

@@ -64,7 +64,7 @@ class MessageQueueService(object):
 
     private
         def post_params
-            params.require(:post).permit(:title, :contents)
+            params.require(:post).permit(:title, :contents, :tag_list)
         end
 
 end

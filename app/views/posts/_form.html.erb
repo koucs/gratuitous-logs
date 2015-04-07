@@ -1,3 +1,10 @@
+
+<%= javascript_tag do %>
+  window.tag_list = <%= raw @post.tag_list.to_json %>;
+  window.available_tag_list = <%= raw Post.tags_on(:tags).map(&:name).to_json %>;
+<% end %>
+
+
 <%= form_for @post do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -20,6 +27,11 @@
   <p>
     <%= f.label :category_id, "CATEGORY" %><br />
     <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </p>
+
+  <p>
+    <%= f.label :category_id, "TAG" %>
+    <ul id="article-tags"></ul>
   </p>
 
   <p>
