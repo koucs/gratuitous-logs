@@ -3,27 +3,27 @@
 <head>
   <title>GratuitousLog</title>
 
-<!--
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
--->
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
+
 </head>
 <body>
-
     <div id="container">
 
       <header id="header">
 
         <nav id="fixed-navi">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Articles</a></li>
-            <li><a href="#">Applications</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#"><i class="fa fa-home fa-fw"></i>&nbsp; Home</a></li>
+            <li><a href="#"><i class="fa fa-newspaper-o"></i>&nbsp; <span class="glyphicons glyphicons-newspaper"></span>Articles</a></li>
+            <li><a href="#"><i class="fa fa-delicious"></i>&nbsp; Applications</a></li>
+            <li><a href="#"><i class="fa fa-envelope-o"></i>&nbsp; Contact</a></li>
           </ul>
         </nav>
 
