@@ -1,12 +1,17 @@
 .highlight {
   font-family: Consolas,"Liberation Mono",Courier,monospace;
   font-size: 12px;
+  font-size: .65em;
+  border: 1px solid #efefef;
+  border-left: 2em solid #efefef;
+  border-radius: 2px;
+  position: relative;
+  counter-reset: linenumbers;
+
   line-height: 1.4;
   padding: 12px;
   padding-right: 0;
   margin-bottom: 16px;
-  border: solid 2px #eee;
-  border-radius: 2px;
   background-color: #333;
   xoverflow: scroll;
 }

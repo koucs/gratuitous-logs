@@ -6,7 +6,8 @@ module SyntaxHelper
     def block_code(code, language)
       sha = Digest::SHA1.hexdigest(code)
       Rails.cache.fetch ["code", language, sha].join('-') do
-        Pygments.highlight(code, lexer:language, class:"code")
+        puts "lexer: "+language+" code:"+code
+        Pygments.highlight(code, lexer:  language, options: {class: "code", linespans: "line"})
       end
     end
   end
