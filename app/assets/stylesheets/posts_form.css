@@ -1,0 +1,24 @@
+table#posts-table {
+   table-layout: fixed;
+   width: 130%;
+}
+
+table#posts-table tr{
+    vertical-align: top;
+}
+
+table#posts-table td#posts-textarea{
+  background-color: #FFFFFF;
+  font-size: 9px;
+}
+
+table#posts-table td#posts-textarea textarea{
+    font-size: 1rem;
+}
+
+table#posts-table td#posts-preview{
+  background-color: #181818;
+  font-size: 9px;
+  color: #ECEEF1;
+}
+table#posts-table td#posts-preview{

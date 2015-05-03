@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments
+    collection do
+      get :convert_mark2html
+    end
   end
 
   root 'posts#index'

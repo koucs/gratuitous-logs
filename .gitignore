@@ -44,3 +44,4 @@ doc/
 
 # User Setting
 config/database.yml
+public/assets/*

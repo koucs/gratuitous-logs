@@ -10,7 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require normalize
  *= require foundation.min
  *= require pygments
@@ -24,6 +23,8 @@ body{
   margin: 0 auto;
   background-color: #181818;
   counter-reset: linenumbers;
+  font-family: "Helvetica", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 #container {
@@ -55,7 +56,7 @@ body{
 
 #main textarea{
   color: #181818;
-  font-size: 15px;
+  font-size: 11px;
 }
 
 #inner {
@@ -90,6 +91,10 @@ ul#article-tags{
   padding: 0;
   margin: 0;
   background-color: #fff;
+}
+
+a:link {
+
 }
 
 

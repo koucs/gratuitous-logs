@@ -20,22 +20,6 @@ class PostsController < ApplicationController
 
     def show
         @post = Post.find(params[:id])
-        @test_code =<<-EOS
- ``` rb
-import pika
-
-class MessageQueueService(object):
-
-    def log(self, message, queue, host, direction=MessageQueueLog.RECEIVED):
-        message_log = MessageQueueLog.objects.create(
-                queue=queue,
-                host=host,
-                message=message,
-                direction=direction
-            )
-        return message_log
-```
-        EOS
     end
 
     def edit
@@ -60,6 +44,15 @@ class MessageQueueService(object):
       @post.destroy
 
       redirect_to posts_path
+    end
+
+    # GET /posts/convert_mark2html
+    def convert_mark2html
+        if params[:user_id] == "test-user"
+            render json: view_context.markdown(params[:contents]).html_safe
+        else
+            render text: "failed"
+        end
     end
 
     private
