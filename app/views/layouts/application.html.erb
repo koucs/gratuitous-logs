@@ -20,17 +20,18 @@
 
 </head>
 <body>
-    <div id="container">
 
       <header id="header">
 
-        <nav id="fixed-navi">
-          <ul>
-            <li><a href="#"><i class="fa fa-home fa-fw"></i>&nbsp; Home</a></li>
-            <li><a href="#"><i class="fa fa-newspaper-o"></i>&nbsp; <span class="glyphicons glyphicons-newspaper"></span>Articles</a></li>
-            <li><a href="#"><i class="fa fa-delicious"></i>&nbsp; Applications</a></li>
-            <li><a href="#"><i class="fa fa-envelope-o"></i>&nbsp; Contact</a></li>
-          </ul>
+        <nav>
+          <div id="global-nav">
+            <ul class="clearfix">
+              <li><a href="#"><i class="fa fa-home fa-fw"></i>&nbsp; <font>Home</font></a></li>
+              <li><a href="#"><i class="fa fa-newspaper-o"></i>&nbsp; <font>Articles</font></a></li>
+              <li><a href="#"><i class="fa fa-delicious"></i>&nbsp; <font>Activities</font></a></li>
+              <li><a href="#"><i class="fa fa-envelope-o"></i>&nbsp; <font>Contact</font></a></li>
+            </ul>
+          </div>
         </nav>
 
         <%= render 'layouts/navigation' %>

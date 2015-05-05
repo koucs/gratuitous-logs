@@ -28,7 +28,7 @@ body{
 }
 
 #container {
-    xwidth: 96%;
+    width: 96%;
     min-width: 760px;
     max-width: 1260px;
     xmargin: 20px auto;
@@ -40,9 +40,10 @@ body{
 }
 
 #main {
-  width: 100%;
+  width: 80%;
   float: left;
-  margin-right:-250px;
+  margin-left: 10%;
+  margin-right: 10%;
   color: #F5F5F5;
 }
 
@@ -93,8 +94,84 @@ ul#article-tags{
   background-color: #fff;
 }
 
-a:link {
-
+a:link{
+  color: #ff7400;
 }
 
+/* ナビゲーションのスタイル */
+
+#global-nav ul{
+margin:0 20px;
+padding:0;
+list-style:none;
+}
+
+.clearfix:after{
+content: ".";
+display: block;
+height: 0;
+font-size:0;
+clear: both;
+visibility:hidden;
+}
+
+#global-nav{
+  width:100%;
+  min-width:800px;
+  background:#aaa;
+  text-align:center;
+  background:#0068b6;
+
+background: #ff7400; /* Old browsers */
+background: -moz-linear-gradient(top,  #ff7400 0%, #ff7400 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff7400), color-stop(100%,#ff7400)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ff7400 0%,#ff7400 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ff7400 0%,#ff7400 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ff7400 0%,#ff7400 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #ff7400 0%,#ff7400 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7400', endColorstr='#ff7400',GradientType=0 ); /* IE6-9 */
+
+}
+#global-nav ul{
+  width:797px;
+  padding:0 1px;
+  margin:0 auto;
+  border-left: 1px solid #ff7400;
+  border-right: 1px solid #ff7400;
+}
+
+#global-nav li a{
+  display: block;
+  position: relative;
+  height: 55px;
+  width: 161px;
+  padding: 5px 0 0;
+  float:left;
+  padding-left:1px;
+  text-decoration: none;
+  line-height: 1.2;
+  font-size:20px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0px 0px 1px #ff7400;
+}
+#global-nav li+li a{
+  border-left: 1px solid #ff7400;
+  border-right: none;
+}
+#global-nav li a font{
+  font-size:15px;
+  display:block;
+  width:100px;
+  margin:0 auto;
+  padding-bottom:3px;
+}
+
+/* マウスオーバー＆クリック時 */
+#global-nav a:hover {
+  color: #b2d1e7;
+}
+#global-nav a:hover font{
+  border-bottom:1px solid #fff;
+}
 

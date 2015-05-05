@@ -24,3 +24,23 @@ table#posts-table td#posts-preview{
 
 table#posts-table td#posts-preview{
 }
+
+h3 {
+    padding-left: 5px;
+  font-size: 25px;
+  color: #ECEEF1;
+}
+
+hr {
+    border: 0;
+    margin-top: 0;
+    height:2px;
+    background: #99999e;
+    background: #ccc;
+    background: -webkit-gradient(linear, left top, right top, from(#333), color-stop(0.7,#ccc), color-stop(0.7,#ccc), to(#333));
+    background: -moz-linear-gradient(left,#333 0%, #ccc 30%, #ccc 70%, #333 100%);
+    background: -o-linear-gradient(left,#333 0%, #ccc 30%, #ccc 70%, #333 100%);
+    background: -ms-linear-gradient(left,#333 0%, #ccc 30%, #ccc 70%, #333 100%);
+    background: linear-gradient(left,#333 0%, #ccc 30%, #ccc 70%, #333 100%);
+    -pie-background: linear-gradient(left,#333 0%, #ccc 30%, #ccc 70%, #333 100%);
+}
