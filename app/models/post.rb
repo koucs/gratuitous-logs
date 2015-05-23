@@ -10,11 +10,7 @@ class Post < ActiveRecord::Base
 
     # 記事内容を20字に省略して表示
     def summary_contents
-        if self.contents.length > 20
-            contents[0, 20] + '...'
-        else
-            contents
-        end
+        self.contents.length > 20 ? contents[0, 20] + '...' : contents
     end
 
 end
