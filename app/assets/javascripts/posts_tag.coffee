@@ -9,7 +9,7 @@ $(document).on 'ready page:load', ->
       $('#article-tags').tagit 'createTag', tag
 
 $ ->
-  $('#input-contents').on('keyup',->
+  $('#input-contents').on('keyup change',->
     unless window.isChange?
       window.isChange = false
     unless window.isWait?

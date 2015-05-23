@@ -46,7 +46,9 @@ class PostsController < ApplicationController
       redirect_to posts_path
     end
 
-    # GET /posts/convert_mark2html
+    # POST /posts/convert_mark2html
+    # Exchange ( Markdown of Textarea -> HTML for displaying Preview )
+    # This Function Only used by AJax
     def convert_mark2html
         if params[:user_id] == "test-user"
             render json: view_context.markdown(params[:contents]).html_safe
