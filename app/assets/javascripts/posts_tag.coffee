@@ -3,10 +3,13 @@ $(document).on 'ready page:load', ->
     fieldName: 'post[tag_list]'
     singleField: true
     availableTags: available_tag_list
+    placeholderText: 'TAGS separated by commas'
 
   if tag_list?
     for tag in tag_list
       $('#article-tags').tagit 'createTag', tag
+
+
 
 $ ->
   $('#input-contents').on('keyup change',->
