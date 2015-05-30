@@ -10,175 +10,180 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require normalize
- *= require foundation.min
  *= require pygments
  *= require jquery.tagit
  *= require tagit.ui-zendesk
+ *= require foundation.min
  *= require_self
  */
 
 body{
-  width: 100%;
-  margin: 0 auto;
-  counter-reset: linenumbers;
-  font-family: "Helvetica", sans-serif;
+  counter-reset: linenumbers; /* syntax highligh用 */
+  font: normal 15px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
     background-color: #181818;
   -webkit-font-smoothing: antialiased;
 }
 
-#container {
-    width: 96%;
-    min-width: 760px;
-    max-width: 1260px;
-    xmargin: 20px auto;
-    background-color: #181818;
-    width: 80%;
-    margin: 0 auto;
-    color: #ECEEF1;
+p {
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: 'Crete Round', serif;
+  font-weight: bold;
+  color: #444;
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-weight: 300;
+  color: #444;
+  font-size: 55px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 30px;
+  color: #444;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-size: 24px;
+  color: #444;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+h5 {
+  font-size: 15px;
+  color: #444;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: #444;
+}
+
+a:hover {
+  color: rgb(230,180,80);
+}
+
+strong {
+  font-weight: bold;
+}
+
+small {
+  font-size: 13px;
+  color: #777;
+  font-style: italic;
+}
+
+.clear {
+  clear: both;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 0 10px;
+  width: 940px;
 }
 
 
-#main {
-  width: 80%;
+/*
+ * header
+ * hero-image
+ * footer
+ */
+
+
+header {
+  height: 80px;
+}
+
+header h1 {
   float: left;
-  margin-left: 10%;
-  margin-right: 10%;
-  color: #F5F5F5;
+  margin-top: 25px;
 }
 
-#main h1{
- color: #F5F5F5;
+header h1 .color {
+  color: rgb(230,180,80);
 }
 
-#main input[type="submit"], #main select  {
-  color: #FF6860;
-}
-
-#main textarea{
-  color: #181818;
-  font-size: 11px;
-}
-
-#inner {
-  margin-right: 250px;
-}
-
-#sub {
-  width: 250px;
+header nav {
   float: right;
+}
+
+header nav ul li {
+  float: left;
+  display: inline-block;
+  margin-top: 40px;
+}
+
+header nav ul li a {
+  color: #444;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: block;
+  margin-right: 20px;
+}
+
+#hero-image {
+  height: 100vh;
+  xbackground: linear-gradient(-45deg, rgba(229,93,135,.7), rgba(95,195,228,.7)), url('<%= asset_path("hero-okinawa-sky.JPG") %> ') center center / cover no-repeat;
+  xbackground: linear-gradient( cyan, transparent), linear-gradient( -45deg, magenta, transparent), linear-gradient( 45deg, yellow, transparent), url('<%= asset_path("background-sky.JPG") %> ') center center / cover no-repeat;
+  xbackground-blend-mode: multiply;
+  background: linear-gradient(rgba(0,0,0,0) 70%, rgba(24,24,24,1)), url('<%= asset_path("hero-okinawa-sky.JPG") %> ') center center / cover no-repeat;
+}
+
+#hero-image h2{
+  padding: 200px 0 40px 0;
+}
+
+.ghost-button-1 {
+  display: block;
+  width: 180px;
+  margin: 0 auto;
+  padding: .5em 4em;
+  font-size: 18px;
+  color: #444;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  border: 0 solid;
+  box-shadow: inset 0 0 20px rgba(4,4,4,0);
+  outline: 2px solid;
+  outline-color: rgba(4,4,4,1);
+  outline-offset: 0;
+  transition: all 1s cubic-bezier(0.19,1,.22,1);
+
+  -moz-box-sizing: none;
+  box-sizing: none;
+}
+.ghost-button-1:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255,255,255,.5), 0 0 20px rgba(255,255,255,.2);
+  outline-color: rgba(255,255,255,0);
+  color: #fff;
+  outline-offset: 15px;
 }
 
 footer {
   clear: both;
   width: 100%; /* for IE6,7*/
-  height: 50px;
+  height: 40px;
   background: #DDD url('<%= asset_path("footer_01.png") %> ') repeat;
-  padding: 10px 0 30px 0 ;
+  padding: 15px 0 30px 0 ;
   size: 20px;
   color: white;
   text-align: center;
-}
-
-header h1 {
-    xbackground-color: #0942a0;
-    padding: 25px 30px;
-    margin: 0px;
-    color: #ffffff;
-    font-size: 40pt;
-}
-
-ul#article-tags{
-  padding: 0;
-  margin: 0;
-  background-color: #fff;
-}
-
-a:link{
-  color: #ff7400;
-}
-
-/* ナビゲーションのスタイル */
-
-#global-nav ul{
-margin:0 20px;
-padding:0;
-list-style:none;
-}
-
-.clearfix:after{
-content: ".";
-display: block;
-height: 0;
-font-size:0;
-clear: both;
-visibility:hidden;
-}
-
-#global-nav{
-  width:100%;
-  min-width:800px;
-  background:#aaa;
-  text-align:center;
-  background:#0068b6;
-
-background: #ff7400; /* Old browsers */
-background: -moz-linear-gradient(top,  #ff7400 0%, #ff7400 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff7400), color-stop(100%,#ff7400)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  #ff7400 0%,#ff7400 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  #ff7400 0%,#ff7400 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  #ff7400 0%,#ff7400 100%); /* IE10+ */
-background: linear-gradient(to bottom,  #ff7400 0%,#ff7400 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7400', endColorstr='#ff7400',GradientType=0 ); /* IE6-9 */
-
-}
-#global-nav ul{
-  width:797px;
-  padding:0 1px;
-  margin:0 auto;
-  border-left: 1px solid #ff7400;
-  border-right: 1px solid #ff7400;
-}
-
-#global-nav li a{
-  display: block;
-  position: relative;
-  height: 55px;
-  width: 161px;
-  padding: 5px 0 0;
-  float:left;
-  padding-left:1px;
-  text-decoration: none;
-  line-height: 1.2;
-  font-size:20px;
-  text-align: center;
-  color: #fff;
-  text-shadow: 0px 0px 1px #ff7400;
-}
-#global-nav li+li a{
-  border-left: 1px solid #ff7400;
-  border-right: none;
-}
-#global-nav li a font{
-  font-size:15px;
-  display:block;
-  width:100px;
-  margin:0 auto;
-  padding-bottom:3px;
-}
-
-/* マウスオーバー＆クリック時 */
-#global-nav a:hover {
-  color: #b2d1e7;
-}
-#global-nav a:hover font{
-  border-bottom:1px solid #fff;
-}
-
-#hero-image {
-  height: 100vh;
-  xbackground: linear-gradient(-45deg, rgba(229,93,135,.7), rgba(95,195,228,.7)), url('<%= asset_path("background-sky.JPG") %> ') center center / cover no-repeat;
-  xbackground: linear-gradient( cyan, transparent), linear-gradient( -45deg, magenta, transparent), linear-gradient( 45deg, yellow, transparent), url('<%= asset_path("background-sky.JPG") %> ') center center / cover no-repeat;
-  xbackground-blend-mode: multiply;
-  background: linear-gradient(rgba(0,0,0,0) 70%, rgba(24,24,24,1)), url('<%= asset_path("background-sky.JPG") %> ') center center / cover no-repeat;
 }
