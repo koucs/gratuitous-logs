@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GratuitousLog</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>wevstat</title>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 
 <!--
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -22,6 +27,7 @@
 <body>
 
       <header id="header">
+        <h1>WevstaT</h1>
 
         <nav>
           <div id="global-nav">
@@ -31,30 +37,35 @@
               <li><a href="#"><i class="fa fa-delicious"></i>&nbsp; <font>Activities</font></a></li>
               <li><a href="#"><i class="fa fa-envelope-o"></i>&nbsp; <font>Contact</font></a></li>
             </ul>
-          </div>
+          </div><!-- #global-nva -->
         </nav>
 
-        <%= render 'layouts/navigation' %>
-
-        <img src="<%= asset_path("40.png") %>" width="1440">
       </header><!-- #header -->
 
-      <div id="main">
+      <div id="hero-image">
+        <div class="wrapper">
+          <h2>Done is better than the perfect.</h2>
+          <a href="#" class="ghost-button-1"> Menu</a>
+        </div>
+      </div>
 
-        <div id="inner">
-          <%= yield %>
-        </div><!-- #inner -->
+      <div id="container">
+        <div id="main">
 
-      </div><!-- #main -->
+          <div id="inner">
+            <%= yield %>
+          </div><!-- #inner -->
 
-      <div id="sub">
-        Popular Posts
-      </div><!-- #sub -->
+        </div><!-- #main -->
 
-    </div><!-- #container -->
+        <div id="sub">
+          Popular Posts
+        </div><!-- #sub -->
+
+      </div><!-- #container -->
 
       <footer>
-        <p><small>© copyright 2015 Acto All Rights Reserved. </small></p>
+        <p><small>© copyright 2015 WevstaT All Rights Reserved. </small></p>
       </footer>
 
 

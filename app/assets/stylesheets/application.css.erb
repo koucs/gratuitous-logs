@@ -21,9 +21,9 @@
 body{
   width: 100%;
   margin: 0 auto;
-  background-color: #181818;
   counter-reset: linenumbers;
   font-family: "Helvetica", sans-serif;
+    background-color: #181818;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -34,10 +34,10 @@ body{
     xmargin: 20px auto;
     background-color: #181818;
     width: 80%;
-    border: 1px solid #181818;
     margin: 0 auto;
     color: #ECEEF1;
 }
+
 
 #main {
   width: 80%;
@@ -175,3 +175,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7400', end
   border-bottom:1px solid #fff;
 }
 
+#hero-image {
+  height: 100vh;
+  xbackground: linear-gradient(-45deg, rgba(229,93,135,.7), rgba(95,195,228,.7)), url('<%= asset_path("background-sky.JPG") %> ') center center / cover no-repeat;
+  xbackground: linear-gradient( cyan, transparent), linear-gradient( -45deg, magenta, transparent), linear-gradient( 45deg, yellow, transparent), url('<%= asset_path("background-sky.JPG") %> ') center center / cover no-repeat;
+  xbackground-blend-mode: multiply;
+  background: linear-gradient(rgba(0,0,0,0) 70%, rgba(24,24,24,1)), url('<%= asset_path("background-sky.JPG") %> ') center center / cover no-repeat;
+}
