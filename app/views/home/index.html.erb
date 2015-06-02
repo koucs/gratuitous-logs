@@ -1,30 +1,20 @@
 <div id="hero-image">
     <div class="wrapper">
       <h2>DONE IS BETTER THAN THE PERFECT.<br /><strong>BLOG BY CoU</strong></h2>
-      <a href="#" class="ghost-button-1"> Menu</a>
+      <a  id="trigger-overlay"  href="javascript:void(0);"  class="ghost-button-1"> Menu</a>
     </div><!-- .wrapper -->
 </div><!-- #hero-image -->
 
-<div id="secondary-content">
-
-    <div class="wrapper">
-
-        <article style="background-image: url('images/article-image-1.jpg');">
-            <div class="overlay">
-                <h4>Secondary Content</h4>
-                <p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod leo a nibh dignissim tincidunt nam.</small></p>
-                <a href="#" class="more-link">View more</a>
-            </div><!-- .overlay-->
-        </article>
-
-        <article style="background-image: url('images/article-image-2.jpg');">
-            <div class="overlay">
-                <h4>Secondary Content</h4>
-                <p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod leo a nibh dignissim tincidunt nam.</small></p>
-                <a href="#" class="more-link">View more</a>
-            </div><!-- .overlay-->
-        </article><div class="clear"></div>
-
-    </div><!-- .wrapper -->
-
-</div><!-- #secondary-content -->
+<div class="overlay overlay-slidedown">
+    <button type="button" class="overlay-close">Close</button>
+    <nav>
+        <ul>
+              <li><a href="<%= url_for controller: :home, action: :index %>"><i class="fa fa-home fa-fw"></i>&nbsp; <font>Home</font></a></li>
+              <li><a href="#"><i class="fa fa-newspaper-o"></i>&nbsp; <font>Articles</font></a></li>
+              <li><a href="#"><i class="fa fa-delicious"></i>&nbsp; <font>Activities</font></a></li>
+              <li><a href="#"><i class="fa fa-envelope-o"></i>&nbsp; <font>Contact</font></a></li>
+        </ul>
+    </nav>
+</div>
+<%= javascript_include_tag 'classie' %>
+<%= javascript_include_tag 'fullscreen-demo1' %>

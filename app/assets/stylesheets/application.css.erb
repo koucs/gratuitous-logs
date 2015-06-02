@@ -10,10 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require pygments
  *= require jquery.tagit
  *= require tagit.ui-zendesk
- *= require foundation.min
  *= require_self
  */
 
@@ -107,12 +105,12 @@ small {
 
 
 header {
-  height: 80px;
+  height: 50px;
 }
 
 header h1 {
   float: left;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 header h1 .color {
@@ -126,7 +124,7 @@ header nav {
 header nav ul li {
   float: left;
   display: inline-block;
-  margin-top: 40px;
+  margin-top: 25px;
 }
 
 header nav ul li a {
@@ -134,15 +132,16 @@ header nav ul li a {
   text-transform: uppercase;
   font-weight: bold;
   display: block;
-  margin-right: 20px;
+  margin-right: 25px;
 }
 
 #hero-image {
   height: 100vh;
+  xbackground-image: url('<%= asset_path("hero-okinawa-sky.JPG") %> ');
   xbackground: linear-gradient(-45deg, rgba(229,93,135,.7), rgba(95,195,228,.7)), url('<%= asset_path("hero-okinawa-sky.JPG") %> ') center center / cover no-repeat;
   xbackground: linear-gradient( cyan, transparent), linear-gradient( -45deg, magenta, transparent), linear-gradient( 45deg, yellow, transparent), url('<%= asset_path("background-sky.JPG") %> ') center center / cover no-repeat;
   xbackground-blend-mode: multiply;
-  background: linear-gradient(rgba(0,0,0,0) 70%, rgba(24,24,24,1)), url('<%= asset_path("hero-okinawa-sky.JPG") %> ') center center / cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0) 60%, rgba(24,24,24,1)), url('<%= asset_path("hero-okinawa-sky.JPG") %> ') center center / cover no-repeat;
 }
 
 #hero-image h2{
@@ -151,10 +150,10 @@ header nav ul li a {
 
 .ghost-button-1 {
   display: block;
-  width: 180px;
+  width: 50px;
   margin: 0 auto;
   padding: .5em 4em;
-  font-size: 18px;
+  font-size: 24px;
   color: #444;
   text-align: center;
   text-decoration: none;
