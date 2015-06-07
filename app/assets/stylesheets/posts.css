@@ -1,8 +1,8 @@
 /*
  *= require_self
+ *= require foundation.min
+ *= require normalize
  *= require posts_form
  *= require posts_highlight
  *= require pygments
- *= require foundation.min
- *= require normalize
 */

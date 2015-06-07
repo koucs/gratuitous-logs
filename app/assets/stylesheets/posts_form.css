@@ -1,6 +1,6 @@
 table#posts-table {
    table-layout: fixed;
-   width: 130%;
+   width: 100%;
 }
 
 table#posts-table tr{

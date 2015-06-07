@@ -16,6 +16,8 @@
  */
 
 body{
+  margin: 0;
+  padding: 0;
   counter-reset: linenumbers; /* syntax highligh用 */
   font: normal 15px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
     background-color: #181818;
@@ -110,6 +112,7 @@ header {
 
 header h1 {
   float: left;
+  margin-left: 25px;
   margin-top: 15px;
 }
 
@@ -136,7 +139,7 @@ header nav ul li a {
 }
 
 #hero-image {
-  height: 100vh;
+  height: 80vh;
   xbackground-image: url('<%= asset_path("hero-okinawa-sky.JPG") %> ');
   xbackground: linear-gradient(-45deg, rgba(229,93,135,.7), rgba(95,195,228,.7)), url('<%= asset_path("hero-okinawa-sky.JPG") %> ') center center / cover no-repeat;
   xbackground: linear-gradient( cyan, transparent), linear-gradient( -45deg, magenta, transparent), linear-gradient( 45deg, yellow, transparent), url('<%= asset_path("background-sky.JPG") %> ') center center / cover no-repeat;
@@ -181,8 +184,11 @@ footer {
   width: 100%; /* for IE6,7*/
   height: 40px;
   background: #DDD url('<%= asset_path("footer_01.png") %> ') repeat;
-  padding: 15px 0 30px 0 ;
-  size: 20px;
-  color: white;
   text-align: center;
+}
+
+footer p{
+  line-height: 5px;
+  margin-bottom: 10px;
+  size: 10px;
 }

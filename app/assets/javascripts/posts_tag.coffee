@@ -2,7 +2,7 @@ $(document).on 'ready page:load', ->
   $('#article-tags').tagit
     fieldName: 'post[tag_list]'
     singleField: true
-    availableTags: available_tag_list
+    availableTags: window.available_tag_list
     placeholderText: 'TAGS separated by commas'
 
   if tag_list?
