@@ -4,3 +4,31 @@
  *= require posts_highlight
  *= require pygments
 */
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+#container {
+    width: 950px;
+    margin: 0 auto;
+    font-size: 14px;
+    position: relative;
+}
+
+#left, #right{
+    border: 1px solid  #ccc; /* 後で外す */
+    padding: 1.25em;
+}
+
+.global-nav--font__clear{
+    text-indent:100%;
+    white-space:nowrap;
+    overflow:hidden;
+}
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 47.5em ) {
+    #left { margin-right: 19.5em; }
+    #right { position: absolute; top: 0; right: 0; width: 18.75em; }
+}
