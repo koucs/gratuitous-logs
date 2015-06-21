@@ -19,6 +19,11 @@
 #left, #right{
     border: 1px solid  #ccc; /* 後で外す */
     padding: 1.25em;
+    background-color: #fff;
+}
+
+h2.left_article_title{
+    font-size: 28px;
 }
 
 .global-nav--font__clear{

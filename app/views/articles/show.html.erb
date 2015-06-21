@@ -1,9 +1,11 @@
 
 <div id="left">
     <p>
-      <strong>TITLE: </strong>
-      <%= @post.title %>
+      <h2 class="left_article_title"><%= @post.title %></h2>
     </p>
+
+    <hr>
+
     <p>
       <strong>CONTENTS：</strong>
       <%= markdown(@post.contents).html_safe %>
