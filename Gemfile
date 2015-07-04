@@ -151,3 +151,8 @@ gem "pygments.rb" # parse
 # Tag Function
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'jquery-ui-rails'
+
+# For use Cloudinary
+# http://qiita.com/GenTamura84/items/38cf899827bba050a21c
+gem 'carrierwave'
+gem 'cloudinary'

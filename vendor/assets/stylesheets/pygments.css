@@ -8,12 +8,12 @@
   position: relative;
   counter-reset: linenumbers;
 
-  line-height: 1.4;
-  padding: 12px;
-  padding-right: 0;
+  line-height: 1.7;
+  padding: 5px 12px;
   margin-bottom: 16px;
   background-color: #333;
   xoverflow: scroll;
+  color: #fff;
 }
 .highlight .hll { background-color: #333333 }
 .highlight .c { color: #008800; font-style: italic; background-color: #0f140f } /* Comment */

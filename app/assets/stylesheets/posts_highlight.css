@@ -1,7 +1,7 @@
 
 .highlight pre > span:before {
   font-size: .10em;
-  color: #aaa;
+  color: #000;
   counter-increment: linenumbers;
   content: counter(linenumbers);
   left: -3.2ex;

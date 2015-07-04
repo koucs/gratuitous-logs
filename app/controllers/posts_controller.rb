@@ -57,6 +57,10 @@ class PostsController < ApplicationController
         end
     end
 
+    def upload_image
+        render text: "image_uploaded"
+    end
+
     private
         def post_params
             params.require(:post).permit(:title, :contents, :tag_list)

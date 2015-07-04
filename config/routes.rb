@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :comments
     collection do
       post :convert_mark2html
+      post :upload_image
     end
   end
 
