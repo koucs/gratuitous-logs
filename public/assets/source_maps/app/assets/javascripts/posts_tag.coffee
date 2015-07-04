@@ -1,4 +1,4 @@
-dnd = (f = ()->) ->
+dnd = (f = () ->) ->
   (e) ->
     e.stopPropagation()    # イベントの親要素への伝播を無効にする
     e.preventDefault()     # イベント発生時のデフォルト動作を無効にする
@@ -29,8 +29,29 @@ convertMarkdownToHtml = (url, waitTimer) ->
 
     clearInterval(waitTimer)
 
+# textarea のカーソル位置にテキストを挿入する
+# http://d.hatena.ne.jp/spitfire_tree/20131209/1386575758
+insertAtCaret = (target, str) ->
+  obj = $(target)
+  obj.focus()
+  if(navigator.userAgent.match(/MSIE/))
+    r = document.selection.createRange()
+    r.text = str
+    r.select()
+  else
+    s = obj.val()
+    p = obj.get(0).selectionStart
+    np = p + str.length
+    obj.val(s.substr(0, p) + str + s.substr(p))
+    obj.get(0).setSelectionRange(np, np)
+
+
 
 $(document).on 'ready page:load', ->
+
+  # Markdownの初回変換
+  convertMarkdownToHtml "/posts/convert_mark2html", 0
+
   $('#article-tags').tagit
     fieldName: 'post[tag_list]'
     singleField: true
@@ -41,9 +62,8 @@ $(document).on 'ready page:load', ->
     for tag in tag_list
       $('#article-tags').tagit 'createTag', tag
 
-  convertMarkdownToHtml "/posts/convert_mark2html", 0
-
 $ ->
+  # テキストエリアの内容が変更されて、3秒後にMarkdownのPreviewへの反映
   $('#input-contents').on('keyup change',->
     unless window.isChange?
       window.isChange = false
@@ -63,11 +83,16 @@ $ ->
       , 3000
   ).keyup()
 
+
   # 画像のDrag&Dropのイベント実装
   $('#input-contents')
-    .on 'dragover', dnd()
+    .on 'dragover', dnd ->
+      $('#input-contents').css('border', '4px green dotted')
+
+    .on 'dragleave', dnd ->
+      $('#input-contents').css('border', '4px gray solid')
+
     .on 'drop', dnd (event) ->
-      console.log event
       file = event.originalEvent.dataTransfer.files[0]
       formData = new FormData()
       formData.append('file', file)
@@ -78,10 +103,17 @@ $ ->
         dataType:  "text"
         contentType: false
         processData: false
-        data:formData
+        data: formData
         error: (xhr, error) ->
           console.log('アップデートに失敗しました')
           console.log(error)
         success: (response) ->
           console.log('アップロードに成功しました')
-          console.log(response)
+          objData = $.parseJSON(response)
+          imageMarkdown = '![alt](' + objData.url + ')'
+          # ブログコンテンツのtextareaのキャラット位置にimgタグ追加
+          insertAtCaret('#input-contents', imageMarkdown)
+          # プレビュー更新
+          convertMarkdownToHtml "/posts/convert_mark2html", 0
+        complete:  (xhr, status)  ->
+          $('#input-contents').css('border', '4px gray solid')

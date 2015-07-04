@@ -29,6 +29,23 @@ convertMarkdownToHtml = (url, waitTimer) ->
 
     clearInterval(waitTimer)
 
+# textarea のカーソル位置にテキストを挿入する
+# http://d.hatena.ne.jp/spitfire_tree/20131209/1386575758
+insertAtCaret = (target, str) ->
+  obj = $(target)
+  obj.focus()
+  if(navigator.userAgent.match(/MSIE/))
+    r = document.selection.createRange()
+    r.text = str
+    r.select()
+  else
+    s = obj.val()
+    p = obj.get(0).selectionStart
+    np = p + str.length
+    obj.val(s.substr(0, p) + str + s.substr(p))
+    obj.get(0).setSelectionRange(np, np)
+
+
 
 $(document).on 'ready page:load', ->
 
@@ -69,9 +86,16 @@ $ ->
 
   # 画像のDrag&Dropのイベント実装
   $('#input-contents')
-    .on 'dragover', dnd()
+    # ドラッグ要素がドロップ要素と重なっている時
+    .on 'dragover', dnd ->
+      $('#input-contents').css('border', '4px green dotted')
+
+    # ドラッグ要素がドロップ要素から出た時
+    .on 'dragleave', dnd ->
+      $('#input-contents').css('border', '4px gray solid')
+
+    # ドロップされた時
     .on 'drop', dnd (event) ->
-      console.log event
       file = event.originalEvent.dataTransfer.files[0]
       formData = new FormData()
       formData.append('file', file)
@@ -82,10 +106,17 @@ $ ->
         dataType:  "text"
         contentType: false
         processData: false
-        data:formData
+        data: formData
         error: (xhr, error) ->
           console.log('アップデートに失敗しました')
           console.log(error)
         success: (response) ->
           console.log('アップロードに成功しました')
-          console.log(response)
+          objData = $.parseJSON(response)
+          imageMarkdown = '!['+ objData.original_filename + '.' + objData.format +'](' + objData.url + ')'
+          # ブログコンテンツのtextareaのキャラット位置にimgタグ追加
+          insertAtCaret('#input-contents', imageMarkdown)
+          # プレビュー更新
+          convertMarkdownToHtml "/posts/convert_mark2html", 0
+        complete:  (xhr, status)  ->
+          $('#input-contents').css('border', '4px gray solid')

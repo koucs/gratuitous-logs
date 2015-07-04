@@ -58,7 +58,12 @@ class PostsController < ApplicationController
     end
 
     def upload_image
-        render text: "image_uploaded"
+        data=params[:file]
+
+        # File.open('./tmp/'+ data.original_filename, 'wb') do |of|
+        #     of.write(data.read)
+        # end
+        render json: Cloudinary::Uploader.upload(data).to_json
     end
 
     private

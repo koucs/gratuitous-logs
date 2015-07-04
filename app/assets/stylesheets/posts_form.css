@@ -8,11 +8,14 @@ table#posts-table tr{
 }
 
 table#posts-table td#posts-textarea{
+  margin: 0;
+  padding: 0;
   background-color: #FFFFFF;
   font-size: 9px;
 }
 
 table#posts-table td#posts-textarea textarea{
+    border: 4px gray solid;
     font-size: 1rem;
 }
 
@@ -44,3 +47,4 @@ hr {
     background: linear-gradient(left,#333 0%, #ccc 30%, #ccc 70%, #333 100%);
     -pie-background: linear-gradient(left,#333 0%, #ccc 30%, #ccc 70%, #333 100%);
 }
+
