@@ -86,12 +86,15 @@ $ ->
 
   # 画像のDrag&Dropのイベント実装
   $('#input-contents')
+    # ドラッグ要素がドロップ要素と重なっている時
     .on 'dragover', dnd ->
-      $('#input-contents').css('border', '4px green dotted')
+      $('#input-contents').css('border', '4px green dashed')
 
+    # ドラッグ要素がドロップ要素から出た時
     .on 'dragleave', dnd ->
       $('#input-contents').css('border', '4px gray solid')
 
+    # ドロップされた時
     .on 'drop', dnd (event) ->
       file = event.originalEvent.dataTransfer.files[0]
       formData = new FormData()
@@ -110,7 +113,7 @@ $ ->
         success: (response) ->
           console.log('アップロードに成功しました')
           objData = $.parseJSON(response)
-          imageMarkdown = '![alt](' + objData.url + ')'
+          imageMarkdown = '!['+ objData.original_filename + '.' + objData.format +'](' + objData.secure_url + ')'
           # ブログコンテンツのtextareaのキャラット位置にimgタグ追加
           insertAtCaret('#input-contents', imageMarkdown)
           # プレビュー更新

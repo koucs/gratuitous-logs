@@ -1,3 +1,12 @@
+img {
+   /* 横幅に合わせて自動縮小するが、拡大はしない */
+   max-width: 100%;
+}
+
+#container{
+  margin: 0 20px;
+}
+
 table#posts-table {
    table-layout: fixed;
    width: 100%;

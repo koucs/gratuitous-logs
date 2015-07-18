@@ -88,7 +88,7 @@ $ ->
   $('#input-contents')
     # ドラッグ要素がドロップ要素と重なっている時
     .on 'dragover', dnd ->
-      $('#input-contents').css('border', '4px green dotted')
+      $('#input-contents').css('border', '4px green dashed')
 
     # ドラッグ要素がドロップ要素から出た時
     .on 'dragleave', dnd ->
@@ -113,7 +113,7 @@ $ ->
         success: (response) ->
           console.log('アップロードに成功しました')
           objData = $.parseJSON(response)
-          imageMarkdown = '!['+ objData.original_filename + '.' + objData.format +'](' + objData.url + ')'
+          imageMarkdown = '!['+ objData.original_filename + '.' + objData.format +'](' + objData.secure_url + ')'
           # ブログコンテンツのtextareaのキャラット位置にimgタグ追加
           insertAtCaret('#input-contents', imageMarkdown)
           # プレビュー更新
