@@ -1,4 +1,9 @@
 class PostsController < ApplicationController
+    USERS = { ENV['BLOG_EDIT_USER'] => ENV['BLOG_EDIT_PASSWD']}
+
+    protect_from_forgery
+    before_filter :digest_authentication
+
     def index
         @posts = Post.all
     end
@@ -67,8 +72,14 @@ class PostsController < ApplicationController
     end
 
     private
-        def post_params
-            params.require(:post).permit(:title, :contents, :tag_list)
+    def post_params
+        params.require(:post).permit(:title, :contents, :tag_list)
+    end
+
+    def digest_authentication
+        authenticate_or_request_with_http_digest do |name|
+          USERS[name]
         end
+    end
 
 end
