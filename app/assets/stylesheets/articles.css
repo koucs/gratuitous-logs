@@ -14,6 +14,7 @@
     margin: 0 auto;
     font-size: 14px;
     position: relative;
+    clear: left;
 }
 
 #left, #right{
@@ -24,12 +25,31 @@
 
 h2.left_article_title{
     font-size: 28px;
+    margin-top: 5px;
+    margin-bottom: 8px;
 }
 
 .global-nav--font__clear{
-    text-indent:100%;
-    white-space:nowrap;
-    overflow:hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#left_article_tag_list{
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+span.left_article_tag{
+    text-align: center;
+    padding: .4em .5em;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border: 1px solid #CAD8F3;
+    background: none;
+    background-color: #DEE7F8;
+    font-weight: normal;
 }
 
 /* MEDIA QUERIES */

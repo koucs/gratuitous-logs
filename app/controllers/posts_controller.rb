@@ -2,7 +2,7 @@ class PostsController < ApplicationController
     USERS = { ENV['BLOG_EDIT_USER'] => ENV['BLOG_EDIT_PASSWD']}
 
     protect_from_forgery
-    before_filter :digest_authentication
+    # before_filter :digest_authentication
 
     def index
         @posts = Post.all

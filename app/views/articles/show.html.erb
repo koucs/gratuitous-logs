@@ -1,13 +1,15 @@
 
 <div id="left">
-    <p>
+      <span class="left_article_date"><%= @post.created_at.strftime("%Y/%m/%d %H:%M") %></span>
       <h2 class="left_article_title"><%= @post.title %></h2>
-    </p>
-
-    <hr>
+      <hr>
+      <div id="left_article_tag_list">
+        <% @post.tags.order(:name).each do |tag| %>
+          <span class="left_article_tag"><%= "#{tag.name}(#{tag.taggings_count})" %></span>
+        <% end %>
+      </div>
 
     <p>
-      <strong>CONTENTS：</strong>
       <%= markdown(@post.contents).html_safe %>
     </p>
 

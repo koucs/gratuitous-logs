@@ -4,17 +4,21 @@
   <tr>
     <th>Date</th>
     <th>Title</th>
-    <th>Contents</th>
+    <th>Tags
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-  <% @posts.each do |post| %>
+  <% @posts.order("updated_at DESC").each do |post| %>
     <tr>
       <td><%= post.updated_at.to_date %></td>
       <td><%= post.title %></td>
-      <td><%= post.summary_contents %></td>
+      <td>
+        <% post.tags.order(:name).each do |tag| %>
+          <%= "#{tag.name}(#{tag.taggings_count})" %>
+        <% end %>
+      </td>
       <td><%= link_to 'Show', post %></td>
       <td><%= link_to 'Edit', edit_post_path(post) %></td>
       <td><%= link_to 'Delete', post_path(post),
