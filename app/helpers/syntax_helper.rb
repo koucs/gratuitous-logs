@@ -20,7 +20,11 @@ module SyntaxHelper
       fenced_code_blocks: true,
       lax_html_blocks: true,
       strikethrough: true,
-      superscript: true
+      superscript: true,
+      underline: true,
+      highlight: true,
+      footnotes: true,
+      tables: true
     }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end

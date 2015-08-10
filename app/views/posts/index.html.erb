@@ -1,10 +1,12 @@
-<h1>All Articles</h1>
+<h1>Posts <%= link_to '＋', new_post_path %></h1>
 
 <table>
   <tr>
+    <th>ID</th>
     <th>Date</th>
     <th>Title</th>
-    <th>Tags
+    <th>Category(M)</th>
+    <th>Tag_List</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,8 +14,10 @@
 
   <% @posts.order("updated_at DESC").each do |post| %>
     <tr>
+      <td><%= post.id %></td>
       <td><%= post.updated_at.to_date %></td>
       <td><%= post.title %></td>
+      <td><%= post.category.id if post.category %></td>
       <td>
         <% post.tags.order(:name).each do |tag| %>
           <%= "#{tag.name}(#{tag.taggings_count})" %>
@@ -28,4 +32,30 @@
 </table>
 
 <br />
-<%= link_to 'New Post', new_post_path %>
+
+<h1>Categories</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>name</th>
+    <th>description</th>
+    <th>image_url <br /> ( "app/assets/images/Category"<br /> 以下に画像を配置 )</th>
+    <th>IMAGE</th>
+    <th>Posts_Count (stats)</th>
+    <th></th>
+  </tr>
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.id %></td>
+      <td><%= category.name %></td>
+      <td><%= category.description %></td>
+      <td><%= category.image_url %></td>
+      <td><%= image_tag("Category/" + category.image_url, alt: category.description, width: '100px') %></td>
+      <td><%= category.posts.length %></td>
+      <td>
+      </td>
+    </tr>
+  <% end %>
+
+</table>

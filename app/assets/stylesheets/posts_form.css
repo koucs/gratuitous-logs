@@ -1,6 +1,15 @@
-img {
-   /* 横幅に合わせて自動縮小するが、拡大はしない */
-   max-width: 100%;
+@font-face {
+   font-family: 'MyWebfont';  /* Change this to whatever you like. */
+   src: url('mywebfont-regular.ttf') format('truetype');  /* The "regular" font resource. */
+   font-style: normal;  /* Associates values of "normal" with this resource. */
+   font-weight: normal;  /* As above for weight. */
+}
+
+@font-face {
+   font-family: 'MyWebfont';  /* Importantly, the same as in the above block; the family name. */
+   src: url('mywebfont-italic.ttf') format('truetype');
+   font-style: italic;  /* Associates values of "italic" with this resource. */
+   font-weight: normal;  /* ... It's not a bold-italic font style. */
 }
 
 table#posts-table {
@@ -33,13 +42,60 @@ table#posts-table td#posts-preview{
 table#posts-table td#posts-preview{
 }
 
-h3 {
-    padding-left: 5px;
-  font-size: 25px;
-  color: #ECEEF1;
+#left_article img {
+   /* 横幅に合わせて自動縮小するが、拡大はしない */
+   max-width: 100%;
 }
 
-hr {
+#left_article h1{
+    font-size: 36px;
+    line-height: 40px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    color: white;
+    font-family: 'Hammersmith One', sans-serif;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+    position: relative;
+    color: rgb(230,180,80);
+}
+
+#left_article h2 {
+    margin: 1em 0 0.5em 0;
+    font-weight: normal;
+    position: relative;
+    font-size: 28px;
+    line-height: 40px;
+    background: #355681;
+    background: rgba(230,180,80, 0.8);
+    border: 1px solid #fff;
+    padding: 5px 8px;
+    color: white;
+    border-radius: 0 10px 0 10px;
+    box-shadow: inset 0 0 5px rgba(230,180,70, 0.5);
+    text-align: left;
+}
+
+#left_article h3 {
+    margin: 1em 0 0.5em 0;
+    padding: 0 0.25em;
+    font-weight: 600;
+    font-family: 'Titillium Web', sans-serif;
+    position: relative;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
+    font-size: 22px;
+    line-height: 40px;
+    color: rgb(230,180,80);
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(230,180,70, 0.3);
+    text-align: left;
+}
+
+#left_article p{
+   font-size:; /* Silence is golden; implicity 1em. */
+   line-height: 1.5;
+}
+
+#left_article hr {
     border: 0;
     margin-top: 0;
     height:2px;
@@ -53,7 +109,7 @@ hr {
     -pie-background: linear-gradient(left,#333 0%, #ccc 30%, #ccc 70%, #333 100%);
 }
 
-blockquote {
+#left_article blockquote {
   background: #f9f9f9;
   border-left: 6px solid #ccc;
   margin: 1.5em 5px;
@@ -61,7 +117,7 @@ blockquote {
   quotes: "\201C""\201D""\2018""\2019";
   overflow:hidden;
 }
-blockquote:before {
+#left_article blockquote:before {
   color: #ccc;
   content: open-quote;
   font-size: 4em;
@@ -69,6 +125,12 @@ blockquote:before {
   margin-right: 0.25em;
   vertical-align: -0.4em;
 }
-blockquote p {
+
+#left_article blockquote p {
   display:inline;
+}
+
+#left_article em{
+  background-color: rgba(230,180,80, .2);
+  padding: 1px 3px;
 }

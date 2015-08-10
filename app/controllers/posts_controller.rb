@@ -2,10 +2,11 @@ class PostsController < ApplicationController
     USERS = { ENV['BLOG_EDIT_USER'] => ENV['BLOG_EDIT_PASSWD']}
 
     protect_from_forgery
-    # before_filter :digest_authentication
+    before_filter :digest_authentication
 
     def index
         @posts = Post.all
+        @categories = Category.all
     end
 
     def new
@@ -15,7 +16,7 @@ class PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
 
-        if params[:preview_button] || !@post.save
+        if !@post.save
             render 'new'
         else
            redirect_to @post
@@ -51,6 +52,11 @@ class PostsController < ApplicationController
       redirect_to posts_path
     end
 
+    # POST /posts/category_new
+    def category_create
+
+    end
+
     # POST /posts/convert_mark2html
     # Exchange ( Markdown of Textarea -> HTML for displaying Preview )
     # This Function Only used by AJax
@@ -64,16 +70,12 @@ class PostsController < ApplicationController
 
     def upload_image
         data=params[:file]
-
-        # File.open('./tmp/'+ data.original_filename, 'wb') do |of|
-        #     of.write(data.read)
-        # end
         render json: Cloudinary::Uploader.upload(data).to_json
     end
 
     private
     def post_params
-        params.require(:post).permit(:title, :contents, :tag_list)
+        params.require(:post).permit(:title, :contents, :tag_list, :category_id)
     end
 
     def digest_authentication
