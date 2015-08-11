@@ -156,3 +156,5 @@ gem 'jquery-ui-rails'
 # http://qiita.com/GenTamura84/items/38cf899827bba050a21c
 gem 'carrierwave'
 gem 'cloudinary'
+
+gem 'disqus'

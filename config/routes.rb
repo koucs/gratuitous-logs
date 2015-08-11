@@ -5,12 +5,22 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
     collection do
+      # About Category Model
+      post :create_category
+      post :update_category
+      delete :delete_category
+
       post :convert_mark2html
       post :upload_image
     end
   end
 
-  resources :articles, :only => [:index, :show]
+  resources :articles, :only => [:index, :show] do
+    collection do
+      get 'list_recently' => 'articles#index'
+      get 'list_by_tags/:id' => 'articles#list_by_tag'
+    end
+  end
 
   root 'home#index'
 

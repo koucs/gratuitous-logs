@@ -4,7 +4,7 @@
 
       <table>
         <TR>
-          <td id="left_article_sumbnail"><%= image_tag("Category/" + @post.category.image_url, alt: @post.category.description, name: @post.category.name, class: "left_article_sumbnail") %></td>
+          <td id="left_article_sumbnail"><%= image_tag(@post.category.image_url, alt: @post.category.description, name: @post.category.name, class: "left_article_sumbnail") %></td>
           <td id="left_article_title"><%= @post.title %></td>
         </TR>
       </table>
@@ -23,13 +23,25 @@
     </div>
 
     <div id="left_comments">
-      <%= render partial: "comments/form", locals: { post: @post } %>
-      <%= render partial: "comments/list", locals: { comments: @post.comments.where.not(id: nil) } %>
+    <div id="disqus_thread"></div>
+      <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES * * */
+          var disqus_shortname = 'wevstat';
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
     </div><!-- #left_contents -->
 
-    <%= link_to 'Back', posts_path %>
+
+    <%= link_to 'Back', articles_path %>
 </div><!-- #inner -->
 
 <div id="right">
-    Popular Posts
+    <%= render 'right_contents' %>
 </div><!-- #sub -->

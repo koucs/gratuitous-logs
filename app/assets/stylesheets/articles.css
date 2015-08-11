@@ -11,14 +11,20 @@
 
 #container {
     width: 950px;
+    height: 100%;
     margin: 0 auto;
     font-size: 14px;
     position: relative;
     clear: left;
 }
 
+#container:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
 #left, #right{
-    border: 1px solid  #ccc; /* 後で外す */
     padding: 1.25em;
     background-color: #fff;
 }
@@ -77,13 +83,17 @@ span.left_article_tag{
     height: 100%;
 }
 .left_article_list a:hover {
-    background-color: rgba(230,180,80, .1);
+    background-color: rgba(230,180,80, .2);
 }
 
 .left_article_list img.left_article_list_img {
     width: 200px;
     float: left;
     margin-right: 10px;
+}
+
+.left_article_list td{
+    padding: 2px 5px;
 }
 
 .left_article_list tr.left_article_list_title{
@@ -111,8 +121,23 @@ span.left_article_tag{
     color: #181818;
 }
 
+h1.right_sub{
+    margin-right: -1.25em;
+    border-bottom: 1px solid;
+    border-color: rgba(56, 56,56, 0.2);
+    font-size: 15px;
+}
+span.right_sub{
+    margin: 0 0 -1px -1.25em;
+    padding: 0 0 10px 1.25em;
+    display: inline-block;
+    border-bottom: 1px solid;
+    border-color: #ed9326;
+    font-weight: bold;
+}
+
 /* MEDIA QUERIES */
 @media screen and (min-width: 47.5em ) {
     #left { margin-right: 19.5em; }
-    #right { position: absolute; top: 0; right: 0; width: 18.75em; }
+    #right { position: absolute; top: 0; right: 0; width: 18.75em;}
 }

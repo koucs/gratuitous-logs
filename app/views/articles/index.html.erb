@@ -7,7 +7,7 @@
                 <table>
                     <tr class="left_article_list_title">
                         <td rowspan="3">
-                            <%= image_tag("Category/" + post.category.image_url, alt: post.category.description, name: post.category.name, class: "left_article_list_img") %>
+                            <%= image_tag(post.category.image_url, alt: post.category.description, name: post.category.name, class: "left_article_list_img") %>
                         </td>
                         <td class="left_article_list_title"><span class="left_article_list_title"><%= post.title %></span></td>
                     </tr>
@@ -24,7 +24,5 @@
 </div><!-- #left -->
 
 <div id="right">
-    Popular Posts
-    <a class="twitter-timeline" href="https://twitter.com/kou_cs" data-widget-id="630675718360272896" width="250px" height="300px">@kou_csさんのツイート</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <%= render 'right_contents' %>
 </div><!-- #right -->

@@ -2,11 +2,19 @@ class PostsController < ApplicationController
     USERS = { ENV['BLOG_EDIT_USER'] => ENV['BLOG_EDIT_PASSWD']}
 
     protect_from_forgery
+
+    # DIGEST Auth
     before_filter :digest_authentication
+
+    # --------------------------------------------------
+    #     About Post Model
+    # --------------------------------------------------
 
     def index
         @posts = Post.all
         @categories = Category.all
+
+        @new_category = Category.new
     end
 
     def new
@@ -52,10 +60,34 @@ class PostsController < ApplicationController
       redirect_to posts_path
     end
 
-    # POST /posts/category_new
-    def category_create
+    # --------------------------------------------------
+    #     About Category Model
+    # --------------------------------------------------
 
+    # POST /category/create
+    def create_category
+        @new_category = Category.new(category_params)
+        @new_category.save
+        redirect_to posts_path
     end
+
+    def update_category
+        @category = Category.find(params[:id])
+
+        if @category.update_attributes(category_params)
+        redirect_to posts_path
+    end
+
+    def remove_category
+        @category = Category.find(params[:id])
+        @category.destroy
+
+        redirect_to posts_path
+    end
+
+    # --------------------------------------------------
+    #     Others
+    # --------------------------------------------------
 
     # POST /posts/convert_mark2html
     # Exchange ( Markdown of Textarea -> HTML for displaying Preview )
@@ -68,14 +100,26 @@ class PostsController < ApplicationController
         end
     end
 
+    # POST /posts/upload_image
+    # Upload Image by Drag & Drop to creating posts form ( /posts/new )
+    # This Function use for Cloudinary (heroku)
     def upload_image
         data=params[:file]
         render json: Cloudinary::Uploader.upload(data).to_json
     end
 
+
+    # --------------------------------------------------
+    #     Private
+    # --------------------------------------------------
+
     private
     def post_params
         params.require(:post).permit(:title, :contents, :tag_list, :category_id)
+    end
+
+    def category_params
+        params.require(:category).permit(:name, :description, :image_url)
     end
 
     def digest_authentication

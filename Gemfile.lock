@@ -68,6 +68,8 @@ GEM
     database_rewinder (0.4.1)
     debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
+    disqus (1.0.4)
+      json
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (0.11.1)
@@ -294,6 +296,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   coffee-rails-source-maps
   database_rewinder
+  disqus
   factory_girl_rails
   figaro
   foreman

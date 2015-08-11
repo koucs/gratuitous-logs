@@ -6,4 +6,10 @@ class ArticlesController < ApplicationController
   def show
     @post = Post.find(params[:id])
   end
+
+  def list_recently
+  end
+
+  def list_by_tag
+  end
 end
