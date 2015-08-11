@@ -74,7 +74,7 @@ class PostsController < ApplicationController
     def update_category
         @category = Category.find(params[:id])
 
-        if @category.update_attributes(category_params)
+        @category.update_attributes(category_params)
         redirect_to posts_path
     end
 
