@@ -16,7 +16,7 @@
  */
 
 body{
-  margin: 0;
+  margin:0 auto;
   padding: 0;
   counter-reset: linenumbers; /* syntax highligh用 */
   font: normal 15px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
@@ -29,8 +29,8 @@ p {
   margin-bottom: 20px;
 }
 
+
 h1 {
-  font-family: 'Crete Round', serif;
   font-weight: bold;
   color: #444;
   font-size: 45px;
@@ -75,7 +75,7 @@ a {
 }
 
 a:hover {
-  text-decoration:  underline;
+  text-decoration: none;
 }
 
 strong {
@@ -90,14 +90,8 @@ small {
 
 .clear {
   clear: both;
+  display: none;
 }
-
-.wrapper {
-  margin: 0 auto;
-  padding: 0 10px;
-  width: 940px;
-}
-
 
 /*
  * header
@@ -112,9 +106,31 @@ header {
 }
 
 header h1 {
+  font-family: 'Crete Round', serif;
   margin: 0;
   float: left;
   margin: 12px 0 0 25px;
+}
+
+.type-shine {
+  width: auto;
+  font-size: 20px;
+  position: relative;
+  xoverflow: hidden;
+}
+.type-shine:before {
+  -webkit-animation: shine .6s ease 1.5s;
+  content:"";
+  position: absolute;
+  top: 0;
+  left: -250px;
+  width: 100%;
+  height: 100%;
+  transform: rotate3d(0,0,1,-45deg) translate3d(0,-120%,0);
+}
+@-webkit-keyframes shine {
+  0% {transform: rotate3d(0,0,1,-45deg) translate3d(0,-120%,0);background: rgba(255,255,255,0.5);}
+  100% {transform: rotate3d(0,0,1,-25deg) translate3d(0,150%,0);background: rgba(255,255,255,0.5);}
 }
 
 header h1 .color {
@@ -180,10 +196,13 @@ header nav ul li a {
   outline-offset: 15px;
 }
 
+.overlay-slidedown nav ul{
+  text-align: left;
+}
+
 #left_comments{
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  padding: 10px 5px;
+  background-color: #e0e0e0;
+  padding: 10px 15px;
 }
 
 #left_comments h2{

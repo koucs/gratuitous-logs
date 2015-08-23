@@ -1,22 +1,38 @@
 <div id="left">
-    <h1><i class="fa fa-newspaper-o"></i><font>Articles</font></h1>
+
+    <h1>
+        <i class="fa fa-newspaper-o"></i><font>Articles</font>
+    </h1>
 
     <% @posts.each do |post| %>
         <div id="post-<%= post.id %>" class="left_article_list">
             <a href="/articles/<%= post.id %>">
                 <table>
+
+                    <!-- Article TITLE -->
                     <tr class="left_article_list_title">
                         <td rowspan="3">
                             <%= image_tag(post.category.image_url, alt: post.category.description, name: post.category.name, class: "left_article_list_img") %>
                         </td>
-                        <td class="left_article_list_title"><span class="left_article_list_title"><%= post.title %></span></td>
+                        <td class="left_article_list_title">
+                            <span class="left_article_list_title"><%= post.title %></span>
+                        </td>
                     </tr>
+
+                    <!-- Article POSTED DATE -->
                     <tr class="left_article_list_date">
-                        <td class="left_article_list_date"><span class="left_article_list_date"><i class="fa fa-calendar"></i>&nbsp<%= post.created_at.strftime("%Y/%m/%d %H:%M") %></span></td>
+                        <td class="left_article_list_date">
+                            <span class="left_article_list_date">
+                                <i class="fa fa-calendar"></i> &nbsp <%= post.created_at.strftime("%Y/%m/%d %H:%M") %>
+                            </span>
+                        </td>
                     </tr>
+
+                    <!-- Article SUMMARY -->
                     <tr class="left_article_list_contents">
                         <td><span class="left_article_list_contents"><%= post.summary_contents %></span></td>
                     </tr>
+
                 </table>
             </a>
         </div><!-- #post-(post-id) -->

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'contact/new'
+
+  get 'contact/create'
+
   get 'home/index'
 
   resources :posts do
@@ -21,6 +25,8 @@ Rails.application.routes.draw do
       get 'list_by_tags/:id' => 'articles#list_by_tag'
     end
   end
+
+  resources :contact, :only => [:new, :create]
 
   root 'home#index'
 

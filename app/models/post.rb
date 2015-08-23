@@ -10,9 +10,12 @@ class Post < ActiveRecord::Base
 
     escape_char = ["\\", "`",  "*", "_", "{", "}",  "#", "+", "-",  ".", "!" ]
 
-    # 記事内容を20字に省略して表示
+    # 記事内容を省略して返す
+    # → #, \ は省略（heading, エスケープで多く使うので）
+    # → 200文字の文字数制限
     def summary_contents
-        self.contents.length > 200 ? contents[0, 200] + '...' : contents
+        output = self.contents.gsub(/(\#|\\)/, "")
+        output.length > 200 ? output[0, 200] + '...' : output
     end
 
 end

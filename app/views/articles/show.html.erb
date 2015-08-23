@@ -1,11 +1,17 @@
 
 <div id="left">
-      <span class="left_article_date"><i class="fa fa-calendar"></i>&nbsp<%= @post.created_at.strftime("%Y/%m/%d %H:%M") %></span>
+      <span class="left_article_date">
+        <i class="fa fa-calendar"></i>&nbsp<%= @post.created_at.strftime("%Y/%m/%d %H:%M") %>
+      </span>
 
       <table>
         <TR>
-          <td id="left_article_sumbnail"><%= image_tag(@post.category.image_url, alt: @post.category.description, name: @post.category.name, class: "left_article_sumbnail") %></td>
-          <td id="left_article_title"><%= @post.title %></td>
+          <td id="left_article_sumbnail">
+            <%= image_tag(@post.category.image_url, alt: @post.category.description, name: @post.category.name, class: "left_article_sumbnail") %>
+          </td>
+          <td id="left_article_title">
+            <%= @post.title %>
+          </td>
         </TR>
       </table>
 
@@ -23,7 +29,7 @@
     </div>
 
     <div id="left_comments">
-    <div id="disqus_thread"></div>
+      <div id="disqus_thread"></div>
       <script type="text/javascript">
           /* * * CONFIGURATION VARIABLES * * */
           var disqus_shortname = 'wevstat';
@@ -35,11 +41,12 @@
               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
           })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      <noscript>
+        Please enable JavaScript to view the
+        <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+      </noscript>
     </div><!-- #left_contents -->
 
-
-    <%= link_to 'Back', articles_path %>
 </div><!-- #inner -->
 
 <div id="right">

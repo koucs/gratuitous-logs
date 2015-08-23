@@ -16,6 +16,7 @@
     font-size: 14px;
     position: relative;
     clear: left;
+    line-height: 3em;
 }
 
 #container:after {
@@ -24,7 +25,11 @@
   content: "";
 }
 
-#left, #right{
+#left{
+    padding: 1.25em;
+    background-color: #fff;
+}
+#right{
     padding: 1.25em;
     background-color: #fff;
 }
@@ -69,7 +74,6 @@ span.left_article_tag{
 /* 記事一覧画面 ( /articles/ ) */
 
 .left_article_list{
-    padding: 8px 0 6px 0;
     line-height: 1;
     font-size: 11px;
     border-top: 1px solid;
@@ -93,7 +97,7 @@ span.left_article_tag{
 }
 
 .left_article_list td{
-    padding: 2px 5px;
+    padding: 6px 4px;
 }
 
 .left_article_list tr.left_article_list_title{
@@ -106,7 +110,6 @@ span.left_article_tag{
 }
 
 .left_article_list tr.left_article_list_date{
-    height: 30px;
     font-size: 15px;
     color: #181818;
 }
@@ -116,7 +119,6 @@ span.left_article_tag{
 }
 
 .left_article_list tr.left_article_list_contents{
-    height: 50px;
     font-size: 12px;
     color: #181818;
 }
@@ -128,8 +130,8 @@ h1.right_sub{
     font-size: 15px;
 }
 span.right_sub{
-    margin: 0 0 -1px -1.25em;
-    padding: 0 0 10px 1.25em;
+    margin: 0 0 -1px -1.15em;
+    padding: 0 0 5px 1.15em;
     display: inline-block;
     border-bottom: 1px solid;
     border-color: #ed9326;
@@ -137,7 +139,9 @@ span.right_sub{
 }
 
 /* MEDIA QUERIES */
-@media screen and (min-width: 47.5em ) {
-    #left { margin-right: 19.5em; }
-    #right { position: absolute; top: 0; right: 0; width: 18.75em;}
+@media screen and (min-width: 760px ) {
+/*   #left { margin-right: 19.5em; } */
+/*    #right { position: absolute; top: 0; right: 0; width: 18.75em;} */
+    #left { float: left; width: 690px;}
+    #right { float: right; width: 250px; }
 }
