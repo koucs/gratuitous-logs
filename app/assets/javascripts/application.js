@@ -15,5 +15,3 @@
 //= require turbolinks
 //= require jquery-ui
 //= require tag-it
-
-

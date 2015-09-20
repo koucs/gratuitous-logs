@@ -13,7 +13,7 @@ module SyntaxHelper
   end
 
   def markdown(text)
-    renderer = HTMLwithPygments.new(hard_wrap: true, filter_html: true)
+    renderer = HTMLwithPygments.new(hard_wrap: true, filter_html: false)
     options = {
       autolink: true,
       no_intra_emphasis: true,

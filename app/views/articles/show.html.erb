@@ -28,6 +28,71 @@
       <%= markdown(@post.contents).html_safe %>
     </div>
 
+
+    <table id="left_sns_button">
+      <tr id="line-1">
+        <td id="twitter-btn"  colspan="2">
+          <a class="twitter-btn"
+            href="http://twitter.com/?status=<%= @post.title %>'%20%7C%20 WevSTAT %20<%= request.url %>%20by%20%40kou_cs"
+            title="Tweet This"
+            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+          >
+            <span><i class="fa fa-twitter"></i></span> Twitter
+          </a>
+        </td>
+
+        <td id="fb-btn" colspan="2">
+          <a class="fb-btn"
+            href="http://www.facebook.com/sharer.php?u=<%= request.url %>&amp;t=<%= @post.title %>"
+            title="Send to Facebook"
+            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+          >
+            <span><i class="fa fa-facebook-square"></i></span> Facebook
+          </a>
+        </td>
+
+      </tr>
+
+      <tr>
+        <td id="gplus-btn">
+          <a class="gplus-btn"
+            href="https://plus.google.com/share?url=<%= request.url %>"
+            title="+1" rel="noreferrer"
+            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+          >
+            <span><i class="fa fa-google-plus"></i></span>
+          </a>
+        </td>
+
+        <td id="hatena-btn">
+          <a class="hatena-btn"
+            href="http://b.hatena.ne.jp/add?mode=confirm&url=<%= request.url %>&title=<%= @post.title %>'"
+            title="このエントリーをはてなブックマークに追加"
+            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+          >
+            <span>はてブ</span>
+          </a>
+
+        </td>
+
+        <td id="pocket-btn">
+          <a class="pocket-btn"
+            href="http://getpocket.com/edit?url=<%= request.url %>&title=<%= @post.title %>"
+            title="Save to Pocket"
+            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+          >
+            <span><i class="fa fa-get-pocket"></i></span>
+          </a>
+        </td>
+
+        <td id="feedly-btn">
+        </td>
+
+      </tr>
+    </table>
+
+
+
     <div id="left_comments">
       <div id="disqus_thread"></div>
       <script type="text/javascript">

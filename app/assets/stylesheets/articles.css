@@ -3,6 +3,7 @@
  *= require posts_form
  *= require posts_highlight
  *= require pygments
+ *= require sns_button
 */
 
 *, *:before, *:after {
