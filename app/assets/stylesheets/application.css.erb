@@ -20,8 +20,12 @@ body{
   padding: 0;
   counter-reset: linenumbers; /* syntax highligh用 */
   font: normal 15px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-    background-color: #181818;
   -webkit-font-smoothing: antialiased;
+
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0) 60%, rgba(24,24,24,1)), url('<%= asset_path("hero-okinawa-sky.JPG") %> ') center center / cover no-repeat;
+  background-color: #181818;
+
 }
 
 p {
@@ -101,13 +105,13 @@ small {
 
 
 header {
-  height: 50px;
-  margin: 0 0 45px 0;
+  height: 80px;
+  margin: 0 0 0 0;
+  background-color: rgba(24,24,24,.5);
 }
 
 header h1 {
   font-family: 'Crete Round', serif;
-  margin: 0;
   float: left;
   margin: 12px 0 0 25px;
 }
@@ -144,11 +148,11 @@ header nav {
 header nav ul li {
   float: left;
   display: inline-block;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 header nav ul li a {
-  color: #444;
+  color: rgb(230,180,80);
   text-transform: uppercase;
   font-weight: bold;
   display: block;
@@ -156,16 +160,16 @@ header nav ul li a {
 }
 
 #hero-image {
-  height: 80vh;
+  height: 76vh;
   xbackground-image: url('<%= asset_path("hero-okinawa-sky.JPG") %> ');
   xbackground: linear-gradient(-45deg, rgba(229,93,135,.7), rgba(95,195,228,.7)), url('<%= asset_path("hero-okinawa-sky.JPG") %> ') center center / cover no-repeat;
   xbackground: linear-gradient( cyan, transparent), linear-gradient( -45deg, magenta, transparent), linear-gradient( 45deg, yellow, transparent), url('<%= asset_path("background-sky.JPG") %> ') center center / cover no-repeat;
   xbackground-blend-mode: multiply;
-  background: linear-gradient(rgba(0,0,0,0) 60%, rgba(24,24,24,1)), url('<%= asset_path("hero-okinawa-sky.JPG") %> ') center center / cover no-repeat;
+  xbackground: linear-gradient(rgba(0,0,0,0) 60%, rgba(24,24,24,1)), url('<%= asset_path("hero-okinawa-sky.JPG") %> ') center center / cover no-repeat;
 }
 
 #hero-image h2{
-  padding: 120px 0 40px 0;
+  padding: 15vh 40px 3vh;
 }
 
 .ghost-button-1 {
@@ -214,13 +218,13 @@ footer {
   clear: both;
 
   width: 100%; /* for IE6,7*/
-  height: 40px;
+  height: 6vh;
   background: #DDD url('<%= asset_path("footer_01.png") %> ') repeat;
   text-align: center;
 }
 
 footer p{
-  line-height: 40px;
+  line-height: 6vh;
   margin-bottom: 0;
   size: 8px;
 }
