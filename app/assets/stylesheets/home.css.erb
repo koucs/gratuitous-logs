@@ -3,6 +3,71 @@
  */
 
  body{
-    background: linear-gradient(rgba(0,0,0,0) 60%, rgba(24,24,24,1)), url('<%= asset_path("hero-okinawa-sky-diet.jpg") %> ') center center / cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0) 60%, rgba(24,24,24,1)), url('<%= asset_path("hero-okinawa-sky-diet_mobile.png") %> ') center center / cover no-repeat;
     background-color: #181818;
  }
+
+h2 {
+    font-size: 27px;
+}
+
+#global-nav ul.clearfix{
+    display: none;
+}
+
+.ghost-button-1 {
+    width: 32px;
+    padding: .2em auto;
+    font-size: 15px;
+}
+
+.overlay ul li a{
+    font-size: 27px;
+}
+
+footer small{
+    font-size: 10px;
+}
+
+
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 760px ) {
+     body{
+        background: linear-gradient(rgba(0,0,0,0) 60%, rgba(24,24,24,1)), url('<%= asset_path("hero-okinawa-sky-diet.jpg") %> ') center center / cover no-repeat;
+        background-color: #181818;
+     }
+
+    h2 {
+      font-size: 55px;
+    }
+
+    #global-nav ul.clearfix{
+        display: block;
+    }
+
+    .ghost-button-1 {
+      width: 50px;
+      margin: 0 auto;
+      padding: .5em 4em;
+      font-size: 24px;
+    }
+
+    .overlay ul li a{
+        font-size: 54px;
+    }
+
+    #left {
+        float: left;
+        width: 690px;
+    }
+    #right {
+        float: right;
+        width: 250px;
+    }
+
+    footer small{
+        font-size: 13px;
+    }
+}
+
