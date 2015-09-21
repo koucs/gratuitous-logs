@@ -4,6 +4,10 @@
         <i class="fa fa-newspaper-o"></i><font>Articles</font>
     </h1>
 
+    <h3>
+        <%= @message %>
+    </h3>
+
     <% @posts.each do |post| %>
         <div id="post-<%= post.id %>" class="left_article_list">
             <a href="/articles/<%= post.id %>">

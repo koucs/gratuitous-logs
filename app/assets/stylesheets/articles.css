@@ -61,7 +61,7 @@ td#left_article_title{
     margin-bottom: 40px;
 }
 
-span.left_article_tag{
+#left_article_tag_list span.left_article_tag{
     text-align: center;
     padding: .4em .5em;
     border-radius: 6px;
@@ -72,13 +72,19 @@ span.left_article_tag{
     font-weight: normal;
 }
 
+#left_article_tag_list span.left_article_tag:hover{
+    opacity: .7;
+}
+
+#left_article_tag_list a{
+    color: #000;
+}
+
 /* 記事一覧画面 ( /articles/ ) */
 
 .left_article_list{
     line-height: 1;
     font-size: 11px;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
     border-color: rgba(56,56,56,0.5);
 }
 

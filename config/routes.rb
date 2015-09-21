@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   resources :articles, :only => [:index, :show] do
     collection do
       get 'list_recently' => 'articles#index'
-      get 'list_by_tags/:id' => 'articles#list_by_tag'
+      get 'list_by_tag/:tag_name' => 'articles#list_by_tag'
+      get 'list_by_category/:category_id' => 'articles#list_by_category'
     end
   end
 
