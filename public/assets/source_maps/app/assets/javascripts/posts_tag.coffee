@@ -24,6 +24,7 @@ convertMarkdownToHtml = (url, waitTimer) ->
     context: this
     success:   (data, status, xhr)   ->
       $("td#posts-preview").html(data)
+      $("table#posts-table td#posts-textarea textarea").height($("td#posts-preview").height())
       window.isChange = false
       window.isWait = false
 

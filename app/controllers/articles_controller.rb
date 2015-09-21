@@ -2,6 +2,10 @@ class ArticlesController < ApplicationController
   def index
     @posts = Post.all.order('updated_at DESC')
     @message = "最近の投稿"
+    respond_to do |format|
+      format.html
+      format.rss
+    end
   end
 
   def show
@@ -31,4 +35,5 @@ class ArticlesController < ApplicationController
     end
     render :index
   end
+
 end

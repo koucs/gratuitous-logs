@@ -1,9 +1,9 @@
 /*
  *= require_self
- *= require posts_form
- *= require posts_highlight
  *= require pygments
  *= require sns_button
+ *= require articles_contents
+ *= require posts_highlight
 */
 
 *, *:before, *:after {
@@ -33,6 +33,14 @@
 #right{
     padding: 1.25em;
     background-color: #fff;
+}
+
+#left_article{
+    padding: 0 20px;
+    font-size: 16px;
+    color: #111;
+    margin-bottom: 2em;
+    line-height: 1.8;
 }
 
 td#left_article_sumbnail{
