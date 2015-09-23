@@ -24,6 +24,7 @@ convertMarkdownToHtml = (url, waitTimer) ->
     context: this
     success:   (data, status, xhr)   ->
       $("td#posts-preview").html(data)
+      # textareaのheightをpreviewのheightに合せる
       $("table#posts-table td#posts-textarea textarea").height($("td#posts-preview").height())
       window.isChange = false
       window.isWait = false
@@ -47,12 +48,11 @@ insertAtCaret = (target, str) ->
     obj.get(0).setSelectionRange(np, np)
 
 
+#----------------------------------------------------------------
+# Init Preview and Tag when page load
+#----------------------------------------------------------------
 
-$(document).on 'ready page:load', ->
-
-  # Markdownの初回変換
-  convertMarkdownToHtml "/posts/convert_mark2html", 0
-
+initPreviewAndTag = ->
   $('#article-tags').tagit
     fieldName: 'post[tag_list]'
     singleField: true
@@ -63,9 +63,8 @@ $(document).on 'ready page:load', ->
     for tag in tag_list
       $('#article-tags').tagit 'createTag', tag
 
-$ ->
-  # テキストエリアの内容が変更されて、3秒後にMarkdownのPreviewへの反映
   $('#input-contents').on('keyup change',->
+    console.log("key up")
     unless window.isChange?
       window.isChange = false
     unless window.isWait?
@@ -83,7 +82,6 @@ $ ->
         convertMarkdownToHtml "/posts/convert_mark2html", waitTimer
       , 3000
   ).keyup()
-
 
   # 画像のDrag&Dropのイベント実装
   $('#input-contents')
@@ -121,3 +119,7 @@ $ ->
           convertMarkdownToHtml "/posts/convert_mark2html", 0
         complete:  (xhr, status)  ->
           $('#input-contents').css('border', '4px gray solid')
+
+$(document).ready(initPreviewAndTag)
+$(document).on('page:load', initPreviewAndTag)
+

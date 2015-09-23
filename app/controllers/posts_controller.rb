@@ -94,7 +94,11 @@ class PostsController < ApplicationController
     # This Function Only used by AJax
     def convert_mark2html
         if params[:user_id] == "test-user"
-            render json: view_context.markdown(params[:contents]).html_safe
+            if params[:contents]
+                render json: view_context.markdown(params[:contents]).html_safe
+            else
+                render json: nil
+            end
         else
             render text: "failed"
         end
