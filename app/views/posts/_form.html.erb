@@ -46,6 +46,11 @@
   </p>
 
   <p>
+    公開する（有効）<%= f.radio_button :is_valid, true , :checked => true , :value => true %><br />
+    公開しない（無効）<%= f.radio_button :is_valid, false , :value => false %><br />
+  </p>
+
+  <p>
     <%= f.submit "Save", id: "submit_button" %>
   </p>
 <% end %>

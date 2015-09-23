@@ -10,6 +10,8 @@ class Post < ActiveRecord::Base
 
     escape_char = ["\\", "`",  "*", "_", "{", "}",  "#", "+", "-",  ".", "!" ]
 
+    scope :valid, -> { where(is_valid: true) }
+
     # 記事内容を省略して返す
     # → #, \ は省略（heading, エスケープで多く使うので）
     # → 200文字の文字数制限
