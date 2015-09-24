@@ -159,3 +159,5 @@ gem 'carrierwave'
 gem 'cloudinary'
 
 gem 'disqus'
+
+gem 'meta-tags'

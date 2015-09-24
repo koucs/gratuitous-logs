@@ -2,6 +2,8 @@ class ArticlesController < ApplicationController
   def index
     @posts = Post.all.valid.order('updated_at DESC')
     @message = "最近の投稿"
+
+    prepare_meta_tags( title: "最近の投稿一覧" )
     respond_to do |format|
       format.html
       format.rss
@@ -10,6 +12,7 @@ class ArticlesController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    prepare_meta_tags( title: @post.title + " | 記事" )
   end
 
   # Find by Category_ID
@@ -21,6 +24,8 @@ class ArticlesController < ApplicationController
     else
       @message = '"' + @category.name + '"カテゴリに関連する投稿はありません'
     end
+
+    prepare_meta_tags( {title: "カテゴリに関連する投稿一覧"} )
     render :index
   end
 
@@ -33,6 +38,8 @@ class ArticlesController < ApplicationController
     else
       @message = '"' + @tag.to_s + '" タグに関連する投稿はありません'
     end
+
+    prepare_meta_tags( title: "タグに関連する投稿一覧" )
     render :index
   end
 
