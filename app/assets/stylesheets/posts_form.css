@@ -17,7 +17,7 @@
 }
 
 #container {
-    width: 1280px;
+    width: 1024px;
     height: auto;
     margin: 0 auto;
     font-size: 14px;
@@ -44,7 +44,6 @@ table#posts-table tr{
 table#posts-table td#posts-textarea{
   margin: 0;
   padding: 0;
-  background-color: #FFFFFF;
   font-size: 9px;
 }
 
@@ -53,12 +52,16 @@ table#posts-table td#posts-textarea textarea{
     border: 4px gray solid;
     font-size: 16px;
     line-height: 1.8;
+  color: #ECEEF1;
+  background-color: #101010;
 }
 
 table#posts-table td#posts-preview{
-  background-color: #181818;
+  xbackground-color: #181818;
   font-size: 9px;
-  color: #ECEEF1;
+  xcolor: #ECEEF1;
+  background-color: #ffffff;
+  font-color: #ECEEF1;
 }
 
 table#posts-table td#posts-preview{
