@@ -111,7 +111,10 @@ initPreviewAndTag = ->
           console.log(error)
         success: (response) ->
           console.log('アップロードに成功しました')
-          objData = $.parseJSON(response)
+          objData = new Object
+          objData = {"public_id":"jem6kezisqu6bhh0b1un","version":1443215165,"signature":"3cf5be7fc13e07576fb1a6e0ca0b890e12b0dd09","width":400,"height":400,"format":"png","resource_type":"image","created_at":"2015-09-25T21:06:05Z","tags":[],"bytes":8310,"type":"upload","etag":"835157fff31a02a126fe57f8123f3ef8","url":"http://res.cloudinary.com/hhokqdeq5/image/upload/v1443215165/jem6kezisqu6bhh0b1un.png","secure_url":"https://res.cloudinary.com/hhokqdeq5/image/upload/v1443215165/jem6kezisqu6bhh0b1un.png","original_filename":"small"}
+          # objData = $.parseJSON(response)
+          console.log(objData)
           imageMarkdown = '!['+ objData.original_filename + '.' + objData.format +'](' + objData.secure_url + ')'
           # ブログコンテンツのtextareaのキャラット位置にimgタグ追加
           insertAtCaret('#input-contents', imageMarkdown)
@@ -120,6 +123,6 @@ initPreviewAndTag = ->
         complete:  (xhr, status)  ->
           $('#input-contents').css('border', '4px gray solid')
 
-$(document).ready(initPreviewAndTag)
-$(document).on('page:load', initPreviewAndTag)
+# $(document).ready(initPreviewAndTag)
+$(document).on('ready page:load', initPreviewAndTag)
 
