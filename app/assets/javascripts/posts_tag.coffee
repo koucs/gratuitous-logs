@@ -112,9 +112,8 @@ initPreviewAndTag = ->
         success: (response) ->
           console.log(response)
           objImage = $.parseJSON(response)
-          console.log(objImage['format_rev'])
+          console.log(objImage['original_filename'])
           imageMarkdown = "![#{objImage['original_filename']}.#{objImage['format_rev']}](#{objImage['secure_url']})"
-
           # imageMarkdown = '!['+ objImage.original_filename + '.' + objImage['format_rev'] +'](' + objImage.secure_url + ')'
           # ブログコンテンツのtextareaのキャラット位置にimgタグ追加
           insertAtCaret('#input-contents', imageMarkdown)
