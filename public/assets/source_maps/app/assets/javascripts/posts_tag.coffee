@@ -110,16 +110,17 @@ initPreviewAndTag = ->
           console.log('アップデートに失敗しました')
           console.log(error)
         success: (response) ->
-          console.log('アップロードに成功しました')
-          objData = new Object
-          objData = {"public_id":"jem6kezisqu6bhh0b1un","version":1443215165,"signature":"3cf5be7fc13e07576fb1a6e0ca0b890e12b0dd09","width":400,"height":400,"format":"png","resource_type":"image","created_at":"2015-09-25T21:06:05Z","tags":[],"bytes":8310,"type":"upload","etag":"835157fff31a02a126fe57f8123f3ef8","url":"http://res.cloudinary.com/hhokqdeq5/image/upload/v1443215165/jem6kezisqu6bhh0b1un.png","secure_url":"https://res.cloudinary.com/hhokqdeq5/image/upload/v1443215165/jem6kezisqu6bhh0b1un.png","original_filename":"small"}
-          # objData = $.parseJSON(response)
-          console.log(objData)
-          imageMarkdown = '!['+ objData.original_filename + '.' + objData.format +'](' + objData.secure_url + ')'
+          console.log(response)
+          objImage = $.parseJSON(response)
+          console.log(objImage['format_rev'])
+          imageMarkdown = "![#{objImage['original_filename']}.#{objImage['format_rev']}](#{objImage['secure_url']})"
+
+          # imageMarkdown = '!['+ objImage.original_filename + '.' + objImage['format_rev'] +'](' + objImage.secure_url + ')'
           # ブログコンテンツのtextareaのキャラット位置にimgタグ追加
           insertAtCaret('#input-contents', imageMarkdown)
           # プレビュー更新
           convertMarkdownToHtml "/posts/convert_mark2html", 0
+          console.log('アップロードに成功しました')
         complete:  (xhr, status)  ->
           $('#input-contents').css('border', '4px gray solid')
 

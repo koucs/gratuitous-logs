@@ -109,10 +109,14 @@ class PostsController < ApplicationController
     # This Function use for Cloudinary (heroku)
     def upload_image
         data=params[:file]
-        puts "file: "+params[:file].to_s
-        json = Cloudinary::Uploader.upload(data).to_json
+        # json = Cloudinary::Uploader.upload(data).to_json
+        json = {
+            format_rev: "png",
+            secure_url: "https://res.cloudinary.com/hhokqdeq5/image/upload/v1443215165/jem6kezisqu6bhh0b1un.png",
+            original_filename:"small"
+        }
         puts json
-        render json: json
+        render json: json.to_json
     end
 
 
