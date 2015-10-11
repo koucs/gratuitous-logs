@@ -1,3 +1,23 @@
-<div id="left" style="height: 500px;">
-    <h1 style="padding: 200px 0 0 0; text-align: center;">Under construction ...</h1>
+
+<div id="hero-image">
+    <div class="wrapper">
+        <div id="left" style="height: 500px;">
+            <h1 style="padding: 300px 0 0 0; text-align: center;">Under construction ...</h1>
+        </div>
+    </div><!-- .wrapper -->
+</div><!-- #hero-image -->
+
+
+<div class="overlay overlay-slidedown">
+    <button type="button" class="overlay-close">Close</button>
+    <nav>
+        <ul>
+              <li><a href="<%= url_for controller: :home, action: :index %>"><i class="fa fa-home fa-fw"></i>&nbsp; <font>Home</font></a></li>
+              <li><a href="<%= url_for controller: :articles, action: :index %>"><i class="fa fa-newspaper-o"></i>&nbsp; <font>Articles</font></a></li>
+              <li><a href="<%= url_for controller: :contact, action: :profile %>"><i class="fa fa-delicious"></i>&nbsp; <font>Profile</font></a></li>
+              <li><a href="<%= url_for controller: :contact, action: :new %>"><i class="fa fa-envelope-o"></i>&nbsp; <font>Contact</font></a></li>
+        </ul>
+    </nav>
 </div>
+<%= javascript_include_tag 'classie' %>
+<%= javascript_include_tag 'fullscreen-demo1' %>

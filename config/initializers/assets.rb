@@ -15,3 +15,6 @@ Rails.application.config.assets.precompile += %w( fullscreen-demo1.js )
 
 Rails.application.config.assets.precompile += %w( articles.css )
 Rails.application.config.assets.precompile += %w( articles.js )
+
+Rails.application.config.assets.precompile += %w( contact.css )
+Rails.application.config.assets.precompile += %w( contact.js )

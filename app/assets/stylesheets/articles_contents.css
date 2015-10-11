@@ -43,7 +43,7 @@
     font-family: 'Titillium Web', sans-serif;
     position: relative;
     xtext-shadow: 0 -1px 1px rgba(0,0,0,0.4);
-    font-size: 22px;
+    font-size: 28px;
     line-height: 40px;
     color: rgb(230,180,80);
     xtext-transform: uppercase;
@@ -51,9 +51,25 @@
     text-align: left;
 }
 
+#left_article h4 {
+    font-size: 24px;
+}
+
+#left_article h5 {
+    font-size: 20px;
+}
+
+#left_article h6 {
+    font-size: 15px;
+}
+
 #left_article p{
    font-size:; /* Silence is golden; implicity 1em. */
    line-height: 1.5;
+}
+
+#left_article em{
+    font-style: normal;
 }
 
 #left_article hr {

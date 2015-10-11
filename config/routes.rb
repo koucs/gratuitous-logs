@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'contact/new'
-
-  get 'contact/create'
-
-  get 'home/index'
-
   resources :posts do
     resources :comments
     collection do
@@ -27,7 +21,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :contact, :only => [:new, :create]
+  resources :contact, :only => [:new, :create] do
+    collection do
+      get 'profile'
+    end
+  end
+
+  resources :home, only: [:index]
 
   root 'home#index'
 
