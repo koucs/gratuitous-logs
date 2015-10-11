@@ -39,6 +39,7 @@ table#left_sns_button td#gplus-btn {
 }
 
 table#left_sns_button td#hatena-btn {
+  vertical-align: middle;
   width: 25%;
   background: #2C6EBD;
 }

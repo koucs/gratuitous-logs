@@ -56,7 +56,7 @@
       </tr>
 
       <tr>
-        <td id="gplus-btn">
+        <td id="gplus-btn" colspan="2">
           <a class="gplus-btn"
             href="https://plus.google.com/share?url=<%= request.url %>"
             title="+1" rel="noreferrer"
@@ -66,7 +66,7 @@
           </a>
         </td>
 
-        <td id="hatena-btn">
+        <td id="hatena-btn" colspan="2">
           <a class="hatena-btn"
             href="http://b.hatena.ne.jp/add?mode=confirm&url=<%= request.url %>&title=<%= @post.title %>'"
             title="このエントリーをはてなブックマークに追加"
@@ -76,9 +76,9 @@
           </a>
 
         </td>
+<!--
 
         <td id="pocket-btn">
-<!--
          <a class="pocket-btn"
             href="http://getpocket.com/edit?url=<%= request.url %>&title=<%= @post.title %>"
             title="Save to Pocket"
@@ -86,11 +86,11 @@
           >
             <span><i class="fa fa-get-pocket"></i></span>
           </a>
- -->
         </td>
 
         <td id="feedly-btn">
         </td>
+ -->
 
       </tr>
     </table>
