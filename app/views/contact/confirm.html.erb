@@ -4,34 +4,46 @@
         <div id="left" style="height: 500px;">
             <!-- <h1 style="padding: 300px 0 0 0; text-align: center;">Under construction ...</h1> -->
             <center>
-                <h1>CONTACT FORM</h1>
+                <h1>Confirm</h1>
 
-                <%= form_tag '/contact/confirm', method: :post do %>
+                <%= form_tag '/contact/', method: :post do %>
                 <table id="profile">
                     <tr>
                         <th>名前 <em>*</em><br /><p>（Name）</p></th>
-                        <td><%= text_field_tag 'contact_data[name]', @contact_data['name'] %></td>
+                        <td>
+                            <%= @contact_data["name"] %>
+                            <%= hidden_field_tag 'contact_data[name]', @contact_data["name"]  %>
+                        </td>
                     </tr>
 
                     <tr>
                         <th>メールアドレス<em>*</em><br /><p>（Mail Address）</p></th>
-                        <td><%= email_field_tag 'contact_data[email]', @contact_data['email'] %></td>
+                        <td>
+                            <%= @contact_data["email"] %>
+                            <%= hidden_field_tag 'contact_data[email]', @contact_data["email"]  %>
+                        </td>
                     </tr>
 
                     <tr>
                         <th>件名<br /><p>（Subject）</p></th>
-                        <td><%= text_field_tag 'contact_data[subject]', @contact_data['subject'] %></td>
+                        <td>
+                            <%= @contact_data["subject"] %>
+                            <%= hidden_field_tag 'contact_data[subject]', @contact_data["subject"]  %>
+                        </td>
                     </tr>
 
                     <tr>
-                        <th>本文<em>*</em><br /><p>（Content）</p></th>
-                        <td><%= text_area_tag 'contact_data[content]' , @contact_data['content'] %></td>
+                        <th>本文<em>*</em><br /><p>（Contents）</p></th>
+                        <td>
+                            <%= @contact_data["content"] %>
+                            <%= hidden_field_tag 'contact_data[content]', @contact_data["content"]  %>
+                        </td>
                     </tr>
 
                     <tr>
                       <th colspan="2">
-                        <%= @error_message %><br />
-                        <%= submit_tag "確認" %>
+                        以上の内容で送信します。<br />
+                        <%= submit_tag "送信" %>
                       </th>
                     </tr>
                 </table>

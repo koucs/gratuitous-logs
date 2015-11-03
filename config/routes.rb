@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :contact, :only => [:new, :create] do
     collection do
       get 'profile'
+      post 'confirm'
     end
   end
 
