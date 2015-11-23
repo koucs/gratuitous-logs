@@ -1,7 +1,7 @@
 
 <div id="hero-image">
     <div class="wrapper">
-        <div id="left" style="height: 500px;">
+        <div id="left" style="height: 450px;">
             <!-- <h1 style="padding: 300px 0 0 0; text-align: center;">Under construction ...</h1> -->
             <center>
                 <h1>CONTACT FORM</h1>
@@ -9,12 +9,12 @@
                 <%= form_tag '/contact/confirm', method: :post do %>
                 <table id="profile">
                     <tr>
-                        <th>名前 <em>*</em><br /><p>（Name）</p></th>
+                        <th>名前 *<br /><p>（Name）</p></th>
                         <td><%= text_field_tag 'contact_data[name]', @contact_data['name'] %></td>
                     </tr>
 
                     <tr>
-                        <th>メールアドレス<em>*</em><br /><p>（Mail Address）</p></th>
+                        <th>メールアドレス*<br /><p>（Mail Address）</p></th>
                         <td><%= email_field_tag 'contact_data[email]', @contact_data['email'] %></td>
                     </tr>
 
@@ -24,17 +24,14 @@
                     </tr>
 
                     <tr>
-                        <th>本文<em>*</em><br /><p>（Content）</p></th>
+                        <th>本文 *<br /><p>（Content）</p></th>
                         <td><%= text_area_tag 'contact_data[content]' , @contact_data['content'] %></td>
                     </tr>
-
-                    <tr>
-                      <th colspan="2">
-                        <%= @error_message %><br />
-                        <%= submit_tag "確認" %>
-                      </th>
-                    </tr>
                 </table>
+
+                <%= @error_message %><br />
+                <%= submit_tag "確認" %>
+
                 <% end %>
 
             </center>
