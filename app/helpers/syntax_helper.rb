@@ -5,16 +5,18 @@ module SyntaxHelper
   class HTMLwithPygments < Redcarpet::Render::HTML
 
     def initialize(extensions = {})
-      super extensions.merge(link_attributes: { target: "_blank" })
+      super extensions.merge(link_attributes: { target: "_blank" } )
     end
 
     def block_code(code, language)
       sha = Digest::SHA1.hexdigest(code)
+
+      # fetchは code-[language]-[sha]がキャッシュに保存されていた場合は
       Rails.cache.fetch ["code", language, sha].join('-') do
-        # puts "lexer: "+language+" code:"+code
-        Pygments.highlight(code, lexer:  language, options: {class: "code", linespans: "line"})
+        Pygments.highlight(code, lexer: language, options: {class: "code", linespans: "line"})
       end
     end
+
   end
 
   def markdown(text)
@@ -33,6 +35,5 @@ module SyntaxHelper
     }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
-
 
 end

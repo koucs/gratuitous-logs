@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @posts = Post.all.valid.order('updated_at DESC')
+    @posts = Post.all.valid.order('created_at DESC')
     @message = "最近の投稿"
 
     prepare_meta_tags( title: "最近の投稿一覧" )
