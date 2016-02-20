@@ -1,0 +1,109 @@
+/*global $, _ */
+
+var isChange = false;
+var commonmark = window.commonmark;
+var writer = new commonmark.HtmlRenderer({ sourcepos: true });
+var reader = new commonmark.Parser();
+
+function convertMarkDownToHtml() {
+    console.log(isChange);
+    if(isChange){
+        var html = reader.parse($('#input-contents').val());
+        // var html = reader.parse("# aaa");
+        $("td#posts-preview").html( writer.render(html) )
+
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+            lineNumbersBlock(block);
+        });
+
+        $("td#posts-textarea textarea").height($("td#posts-preview").height())
+
+        isChange = false;
+    }
+}
+
+function lineNumbersBlock (element) {
+    if (typeof element !== 'object') return;
+
+    var parent = element.parentNode;
+    var lines = getCountLines(parent.textContent);
+    var nbsp = String.fromCharCode( 160 );
+
+    if (lines > 1) {
+        var l = '';
+        for (var i = 0; i < lines; i++) {
+            l += (nbsp+nbsp+i).slice(-3) + '\n';
+        }
+
+        var linesPanel = document.createElement('code');
+        linesPanel.className = 'hljs hljs-line-numbers';
+        linesPanel.style.float = 'left';
+        linesPanel.style.textAlign = 'right';
+        linesPanel.textContent = l;
+
+        parent.insertBefore(linesPanel, element);
+    }
+}
+
+function getCountLines(text) {
+    if (text.length === 0) return 0;
+
+    var regExp = /\r\n|\r|\n/g;
+    var lines = text.match(regExp);
+    lines = lines ? lines.length : 0;
+
+    // 最終行に改行がある場合、+1する
+    if (!text[text.length - 1].match(regExp)) {
+        lines += 1;
+    }
+
+    return lines;
+}
+
+
+$(document).ready(function(){
+
+    if($('#input-contents').val() != ''){
+        isChange = true;
+        convertMarkDownToHtml();
+    }
+
+    // 半角英数の入力を検知
+    $('#input-contents').keypress(function() {
+        isChange = true;
+        convertMarkDownToHtml();
+    });
+
+    // deleteキーとbackspaceキーの入力を検知
+    $('#input-contents').keyup(function(e) {
+        if (e.keyCode == 46 || e.keyCode == 8){
+            isChange = true;
+            convertMarkDownToHtml();
+        }
+    });
+
+
+});
+
+    // convertMarkdownToHtml "/posts/convert_mark2html", 0
+
+    // $('#input-contents').on('keyup change',->
+    //     console.log("key up")
+    //     unless window.isChange?
+    //         window.isChange = false
+    //     unless window.isWait?
+    //         window.isWait = false
+
+    //     if window.isChange == false
+    //         window.isChange = true
+    //         window.timeStart = new Date().getTime()
+    //         console.log("to TRUE")
+
+    //     else if window.isChange == true && window.isWait == false
+    //         window.isWait = true
+    //         waitTimer = 0
+    //         waitTimer = setInterval ->
+    //         convertMarkdownToHtml "/posts/convert_mark2html", waitTimer
+    //     , 3000
+    // ).keyup()

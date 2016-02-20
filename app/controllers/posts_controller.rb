@@ -1,10 +1,13 @@
 class PostsController < ApplicationController
-    USERS = { ENV['BLOG_EDIT_USER'] => ENV['BLOG_EDIT_PASSWD']}
+    USERS = {
+        ENV['BLOG_EDIT_USER'] => ENV['BLOG_EDIT_PASSWD']
+    }
 
-    protect_from_forgery
+    # CSRF 対策を無効にする
+    # protect_from_forgery
 
     # DIGEST Auth
-    before_filter :digest_authentication
+    # before_filter :digest_authentication
 
     # --------------------------------------------------
     #     About Post Model
