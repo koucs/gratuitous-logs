@@ -17,24 +17,31 @@
     </div>
   <% end %>
 
-  <p>
-    <%= f.text_field :title, :placeholder => "TITLE" %>
-  </p>
+<table id="contents-table" class="table">
+  <tbody>
+    <tr>
+      <th><%= f.label :category_id, "TITLE" %></th>
+      <td><%= f.text_field :title, :placeholder => "TITLE" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :category_id, "CATEGORIES" %></th>
+      <td><%= f.collection_select :category_id, Category.all, :id, :name %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :category_id, "TAGS" %></th>
+      <td><ul id="article-tags"></td>
+    </tr>
+  </tbody>
+</table>
 
   <p>
-    <%= f.label :category_id, "CATEGORY" %><br />
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
-  </p>
+    <p>
+      CONTENTS
+      ( Parsed in <span class="timing" id="parsetime"></span > ms.  Rendered in <span class="timing" id="rendertime"></span> ms.)
+    </p>
 
-  <p>
-    <ul id="article-tags"></ul>
-  </p>
-
-  <p>
-    <%= f.label :text, "CONTENTS" %>
     <div id="left_article">
-
-      <table id="posts-table">
+      <table id="posts-table" class="table">
         <trj>
           <td id="posts-textarea"><%= f.text_area :contents, rows: 40, id: "input-contents" %></td>
           <td id="posts-preview"></td>
@@ -49,6 +56,7 @@
     公開する（有効）<%= f.radio_button :is_valid, true , :checked => true , :value => true %><br />
     公開しない（無効）<%= f.radio_button :is_valid, false , :value => false %><br />
   </p>
+
 
   <p>
     <%= f.submit "Save", id: "submit_button" %>

@@ -12,6 +12,14 @@
    font-weight: normal;  /* ... It's not a bold-italic font style. */
 }
 
+body{
+  background-color: #333333;
+}
+
+ul, ol{
+    margin-bottom: 0;
+}
+
 #header{
   height: 75px;
 }
@@ -20,16 +28,29 @@
     width: 1024px;
     height: auto;
     margin: 0 auto;
+    padding: 20px 30px;
     font-size: 14px;
     position: relative;
     clear: left;
-    line-height: 3em;
+    line-height: 1.4em;
+    background-color: white;
 }
 
 #container:after {
   display: block;
   clear: both;
   content: "";
+}
+
+table#contents-table {
+  vertical-align: middle;
+}
+
+table#contents-table  th{
+  width: 150px;
+}
+table#contents-table  tr input{
+  width: 750px;
 }
 
 table#posts-table {
@@ -45,26 +66,24 @@ table#posts-table td#posts-textarea{
   margin: 0;
   padding: 0;
   font-size: 9px;
+  width: 50%;
 }
 
 table#posts-table td#posts-textarea textarea{
-  height: 100px;
+  height: 300px;
   border: 4px gray solid;
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.3;
   color: #ECEEF1;
-  background-color: #101010;
+  background-color: #333333;
+  width: 100%;
 }
 
 table#posts-table td#posts-preview{
-  xbackground-color: #181818;
-  font-size: 9px;
-  xcolor: #ECEEF1;
-  background-color: #ffffff;
+  padding: 2px 5px;
+  width: 50%;
+  background-color: #fcfcfc;
   font-color: #ECEEF1;
-}
-
-table#posts-table td#posts-preview{
 }
 
 /* --------------------------------------------------------------------- */
@@ -73,26 +92,36 @@ table#posts-table td#posts-preview{
 
 table#post_table{
   width: 100%;
+  text-align: center;
 }
 table#post_table th{
   white-space: nowrap;
   width: 100px;
 }
-
 table#post_table th.post_table_id{
-  width: 50px;
+  width: 30px;
 }
 table#post_table th.post_table_title{
-  width: 300px;
+  width: 320px;
 }
 
 
 table#category_table{
   width: 100%;
+  text-align: center;
 }
 table#category_table th{
   white-space: nowrap;
   width: 100px;
+}
+table#category_table th.category_table_id{
+  width: 40px;
+}
+table#category_table th.category_table_description{
+  width: 100px;
+}
+table#category_table th.category_table_image{
+  width: 220px;
 }
 table#category_table tr.new{
   background-color: rgba(230,180,80, .4);

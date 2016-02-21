@@ -1,51 +1,54 @@
 <h1>Posts <%= link_to '＋', new_post_path %></h1>
 
-<table id="post_table">
-  <tr>
-    <th class="post_table_id">id</th>
-    <th>updated_at</th>
-    <th class="post_table_title">title</th>
-    <th>category_id</th>
-    <th>is_valid</th>
-    <th>is_draft</th>
-    <th>tags</th>
-    <th colspan="3">ACTIONS</th>
-  </tr>
-
-  <% @posts.order("updated_at DESC").each do |post| %>
+<table id="post_table" class="table table-zebra">
+  <thead>
     <tr>
-      <td><%= post.id %></td>
-      <td><%= post.updated_at.to_date %></td>
-      <td><%= post.title %></td>
-      <td><%= post.category_id %></td>
-      <td><%= post.is_valid %></td>
-      <td><%= post.is_draft %></td>
-      <td>
-        <% post.tags.order(:name).each do |tag| %>
-          <%= "#{tag.name}(#{tag.taggings_count})" %>
-        <% end %>
-      </td>
-      <td><%= link_to 'Show', post %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Delete', post_path(post),
-                method: :delete, data: { confirm: 'Delete this "' + post.title + '" article?' } %></td>
+      <th class="post_table_id">id</th>
+      <th>updated_at</th>
+      <th class="post_table_title">title</th>
+      <th>category_id</th>
+      <th>is_valid</th>
+      <th>is_draft</th>
+      <th>tags</th>
+      <th colspan="3">ACTIONS</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @posts.order("updated_at DESC").each do |post| %>
+      <tr>
+        <td><%= post.id %></td>
+        <td><%= post.updated_at.to_date %></td>
+        <td><%= post.title %></td>
+        <td><%= post.category_id %></td>
+        <td><%= post.is_valid %></td>
+        <td><%= post.is_draft %></td>
+        <td>
+          <% post.tags.order(:name).each do |tag| %>
+            <%= "#{tag.name}(#{tag.taggings_count})" %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Delete', post_path(post),
+                  method: :delete, data: { confirm: 'Delete this "' + post.title + '" article?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br />
 
 <h1>Categories</h1>
 
-<table id="category_table">
+<table id="category_table" class="table table-zebra">
   <tr>
-    <th>id</th>
+    <th class="category_table_id">id</th>
     <th>name</th>
-    <th>description</th>
-    <th>image_url (Cloudinary)</th>
+    <th class="category_table_description">description</th>
+    <th class="category_table_image">image_url (Cloudinary)</th>
     <th>IMAGE</th>
     <th>Posts_Count <br /> (stats)</th>
-    <th>ACTIONS</th>
+    <th colspan="2">ACTIONS</th>
   </tr>
 
   <% @categories.each do |category| %>
@@ -56,7 +59,8 @@
       <td><%= category.image_url %></td>
       <td><%= image_tag(category.image_url, alt: category.description, width: '100px') %></td>
       <td><%= category.posts.length %></td>
-      <td>UPDATE &nbsp DELETE </td>
+      <td>UPDATE</td>
+      <td>DELETE </td>
     </tr>
   <% end %>
 
@@ -68,7 +72,7 @@
       <td><%= f.text_field :image_url, :placeholder => "image_url" %></td>
       <td></td>
       <td></td>
-      <td><%= f.submit "Create!" %></td>
+      <td colspan="2"><%= f.submit "Create!" %></td>
     </tr>
   <% end %>
 

@@ -65,7 +65,7 @@
 
 #left_article p{
    font-size:; /* Silence is golden; implicity 1em. */
-   line-height: 1.5;
+   line-height: 1.4;
 }
 
 #left_article em{

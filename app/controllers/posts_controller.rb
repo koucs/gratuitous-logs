@@ -4,10 +4,10 @@ class PostsController < ApplicationController
     }
 
     # CSRF 対策を無効にする
-    # protect_from_forgery
+    protect_from_forgery
 
     # DIGEST Auth
-    # before_filter :digest_authentication
+    before_filter :digest_authentication
 
     # --------------------------------------------------
     #     About Post Model

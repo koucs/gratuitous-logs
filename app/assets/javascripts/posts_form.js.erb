@@ -1,3 +1,6 @@
+"use strict";
+
+/*eslint-env browser*/
 /*global $, _ */
 
 var isChange = false;
@@ -5,19 +8,39 @@ var commonmark = window.commonmark;
 var writer = new commonmark.HtmlRenderer({ sourcepos: true });
 var reader = new commonmark.Parser();
 
+
 function convertMarkDownToHtml() {
     console.log(isChange);
     if(isChange){
-        var html = reader.parse($('#input-contents').val());
-        // var html = reader.parse("# aaa");
-        $("td#posts-preview").html( writer.render(html) )
+        var textarea = $("#input-contents");
 
+        // parse処理
+        var startTime = new Date().getTime();
+        var parsed = reader.parse(textarea.val());
+        var endTime = new Date().getTime();
+        var parseTime = endTime - startTime;
+        $("#parsetime").text(parseTime);
+
+        // render処理
+        startTime = new Date().getTime();
+        $("#posts-preview").html(writer.render(parsed));
+        endTime = new Date().getTime();
+        var renderTime = endTime - startTime;
+        $("#rendertime").text(renderTime);
+
+        // Syntax Highlight (Use "highlight.js")
         $('pre code').each(function(i, block) {
             hljs.highlightBlock(block);
-            lineNumbersBlock(block);
+            // lineNumbersBlock(block);
         });
 
-        $("td#posts-textarea textarea").height($("td#posts-preview").height())
+        // Textarea と Preview要素の高さをそろえる
+        var currentPreviewHeight = $("td#posts-preview").height();
+        var currentTextareaHeight =  $("td#posts-textarea textarea").height();
+
+        if(currentPreviewHeight > currentTextareaHeight-14){
+            $("td#posts-textarea textarea").height(currentPreviewHeight-14);
+        }
 
         isChange = false;
     }
@@ -64,6 +87,19 @@ function getCountLines(text) {
 
 $(document).ready(function(){
 
+    $('#article-tags').tagit({
+        fieldName: 'post[tag_list]',
+        singleField: true,
+        availableTags: window.available_tag_list,
+        placeholderText: 'TAGS separated by commas'
+    });
+
+    if(tag_list.length > 0){
+        for(var tag in tag_list){
+          $('#article-tags').tagit('createTag', tag);
+        }
+    }
+
     if($('#input-contents').val() != ''){
         isChange = true;
         convertMarkDownToHtml();
@@ -74,7 +110,6 @@ $(document).ready(function(){
         isChange = true;
         convertMarkDownToHtml();
     });
-
     // deleteキーとbackspaceキーの入力を検知
     $('#input-contents').keyup(function(e) {
         if (e.keyCode == 46 || e.keyCode == 8){
@@ -83,27 +118,5 @@ $(document).ready(function(){
         }
     });
 
-
 });
 
-    // convertMarkdownToHtml "/posts/convert_mark2html", 0
-
-    // $('#input-contents').on('keyup change',->
-    //     console.log("key up")
-    //     unless window.isChange?
-    //         window.isChange = false
-    //     unless window.isWait?
-    //         window.isWait = false
-
-    //     if window.isChange == false
-    //         window.isChange = true
-    //         window.timeStart = new Date().getTime()
-    //         console.log("to TRUE")
-
-    //     else if window.isChange == true && window.isWait == false
-    //         window.isWait = true
-    //         waitTimer = 0
-    //         waitTimer = setInterval ->
-    //         convertMarkdownToHtml "/posts/convert_mark2html", waitTimer
-    //     , 3000
-    // ).keyup()
