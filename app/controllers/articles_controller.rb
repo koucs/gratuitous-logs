@@ -1,9 +1,10 @@
 class ArticlesController < ApplicationController
+
+  before_action :before_load_tags
+
   def index
     @posts = Post.all.valid.order('created_at DESC')
     @message = "最近の投稿"
-
-    @tags = Post.tag_counts_on(:tags)
 
     prepare_meta_tags( title: "最近の投稿一覧" )
     respond_to do |format|
@@ -45,4 +46,9 @@ class ArticlesController < ApplicationController
     render :index
   end
 
+
+  private
+  def before_load_tags
+    @tags = Post.tag_counts_on(:tags)
+  end
 end
