@@ -154,6 +154,25 @@ span.right_sub{
     font-weight: bold;
 }
 
+#right .right_tag_cloud a{
+    opacity: 0.80;
+    color: #fff;
+    display: inline-block;
+    margin: 0 5px 5px 0;
+    padding: 0 6px;
+    line-height: 30px;
+    border-radius: 5px;
+}
+#right .right_tag_cloud a.css1{background-color: #4A4A4A;}
+#right .right_tag_cloud a.css2{background-color: #428BCA;}
+#right .right_tag_cloud a.css3{background-color: #5CB85C;}
+#right .right_tag_cloud a.css4{background-color: #D9534F;}
+#right .right_tag_cloud a.css5{background-color: #567E95;}
+#right .right_tag_cloud a.css6{background-color: #B433FF;}
+#right .right_tag_cloud a.css7{background-color: #00ABA9;}
+#right .right_tag_cloud a.css8{background-color: #B37333;}
+#right .right_tag_cloud a.css9{background-color: #FF6600;}
+
 /* MEDIA QUERIES */
 @media screen and (min-width: 760px ) {
 /*   #left { margin-right: 19.5em; } */
