@@ -7,7 +7,7 @@
   border-radius: 2px;
   position: relative;
   /*overflow: scroll;*/
-  /*overflow-x: auto;*/
+  overflow-x: auto;
 
   padding: 5px 12px;
   margin-bottom: 16px;
