@@ -9,7 +9,7 @@ RSpec.describe "articles/show", :type => :view do  context "no data" do
     end
 
     it "being displayed 'Title' " do
-        should match(@post.Title)
+        should match(@post.title)
     end
 
     it "being displayed 'Tag Cloud' " do
