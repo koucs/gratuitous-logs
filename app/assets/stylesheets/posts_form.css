@@ -94,15 +94,28 @@ table#post_table{
   width: 100%;
   text-align: center;
 }
+table#post_table tr {
+  border-style: none dashed 1px;
+  border-right: 1px dashed;
+}
+
 table#post_table th{
   white-space: nowrap;
+  background-color: #B3BAC7;
   width: 100px;
+  border-left: 1px dashed;
 }
 table#post_table th.post_table_id{
   width: 30px;
 }
 table#post_table th.post_table_title{
   width: 320px;
+}
+table#post_table th.post_tags{
+  font-size: 7px;
+}
+table#post_table td{
+  border-left: 1px dashed;
 }
 
 
@@ -112,7 +125,9 @@ table#category_table{
 }
 table#category_table th{
   white-space: nowrap;
+  background: #B3BAC7;
   width: 100px;
+  border-left: 1px dashed;
 }
 table#category_table th.category_table_id{
   width: 40px;
@@ -129,4 +144,6 @@ table#category_table tr.new{
 table#category_table td{
   word-break : break-all;
   vertical-align: middle;
+  border-left: 1px dashed;
+
 }
