@@ -1,6 +1,7 @@
 "use strict";
 
 var isChange = false;
+var timer // store setTimout id
 var commonmark = window.commonmark;
 var writer = new commonmark.HtmlRenderer({ sourcepos: true });
 var reader = new commonmark.Parser();
@@ -39,6 +40,8 @@ function convertMarkDownToHtml() {
         if(currentPreviewHeight > currentTextareaHeight-14){
             $("td#posts-textarea textarea").height(currentPreviewHeight-14);
         }
+
+        MathJax.Hub.Typeset(["Typeset",MathJax.Hub, "posts-preview"]);
 
         isChange = false;
     }
@@ -128,13 +131,17 @@ $(document).ready(function(){
     // 半角英数の入力を検知
     $('#input-contents').keypress(function() {
         isChange = true;
-        convertMarkDownToHtml();
+        timer && clearTimeout(timer);
+        timer = setTimeout(convertMarkDownToHtml, 500);
+        // convertMarkDownToHtml();
     });
     // deleteキーとbackspaceキーの入力を検知
     $('#input-contents').keyup(function(e) {
         if (e.keyCode == 46 || e.keyCode == 8){
             isChange = true;
-            convertMarkDownToHtml();
+            timer && clearTimeout(timer);
+            timer = setTimeout(convertMarkDownToHtml, 500);
+            // convertMarkDownToHtml();
         }
     });
 
