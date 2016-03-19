@@ -18,4 +18,3 @@ RSpec.describe "articles/show", :type => :view do  context "no data" do
   end
 
 end
-

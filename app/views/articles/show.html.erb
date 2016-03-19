@@ -27,8 +27,13 @@
       </div>
 
     <div id="left_article">
-      <%= markdown(@post.contents).html_safe %>
+      <%= @post.contents %>
     </div>
+    <script type="text/javascript">
+    <!--
+        GlobalM2H.convertMarkdownToHtml($("#left_article").text(), "#left_article");
+      //-->
+    </script>
 
 
     <table id="left_sns_button">
