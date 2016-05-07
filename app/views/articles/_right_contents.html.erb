@@ -1,0 +1,19 @@
+<h1 class="right_sub">
+    <span class="right_sub">Profile</span>
+</h1>
+<img id="profile_image" src="http://pbs.twimg.com/profile_images/686205764826824705/7tYsuN7k.png", alt="kou_cs Profile Image" style="width: 100%;">
+
+<h1 class="right_sub">
+    <span class="right_sub">Twitter Timeline</span>
+</h1>
+<a class="twitter-timeline" href="https://twitter.com/kou_cs" data-widget-id="630675718360272896" width="215px" height="300px">@kou_csさんのツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<h1 class="right_sub">
+    <span class="right_sub">Tag Clouds</span>
+</h1>
+<div class="right_tag_cloud">
+    <% tag_cloud tags, %w{css1 css2 css3 css4} do |tag, css_class| %>
+        <%= link_to tag.name, "/articles/list_by_tag/#{tag.name}", class: css_class %>
+    <% end %>
+</div>

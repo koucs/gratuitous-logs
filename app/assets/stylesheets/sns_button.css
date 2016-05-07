@@ -1,0 +1,73 @@
+
+table#left_sns_button{
+  margin: 50px 0 50px 0;
+  padding: 0;
+  width: 100%;
+  vertical-align: middle;
+  font-size: 25px;
+  color: #fff;
+}
+
+table#left_sns_button td{
+  vertical-align: middle;
+  text-align: center;
+  padding: auto auto;
+  -ms-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+table#left_sns_button td:hover {
+  opacity: .7;
+}
+
+table#left_sns_button td#twitter-btn {
+  width: 50%;
+  background: #33CCFF;
+}
+
+table#left_sns_button td#fb-btn {
+  width: 50%;
+  background: #3B5998;
+}
+
+table#left_sns_button td#gplus-btn {
+  width: 25%;
+  background: #C63D2D;
+}
+
+table#left_sns_button td#hatena-btn {
+  vertical-align: middle;
+  width: 25%;
+  background: #2C6EBD;
+}
+
+table#left_sns_button td#pocket-btn {
+  width: 25%;
+  background: #F03E51;
+}
+
+table#left_sns_button td#feedly-btn {
+  width: 25%;
+  background: #2C6EBD;
+}
+
+table#left_sns_button a{
+  display:block;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+table#left_sns_button i{
+  position: relative;
+  font-size: 40px;
+  margin-top: 8px;
+}
+
+table#left_sns_button span{
+  height: 40px;
+  vertical-align: middle;
+}

@@ -2,7 +2,7 @@
 <%= form_for( [post, post.comments.build] ) do |f| %>
   <p>
     <%= f.label :commentator, "Commentator" %><br />
-    <%= f.text_field :commentator %>
+    <%= f.text_field :commentator, placeholder: "Name" %>
   </p>
 
   <p>

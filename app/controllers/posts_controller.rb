@@ -1,6 +1,23 @@
 class PostsController < ApplicationController
+    USERS = {
+        ENV['BLOG_EDIT_USER'] => ENV['BLOG_EDIT_PASSWD']
+    }
+
+    # CSRF 対策を無効にする
+    protect_from_forgery
+
+    # DIGEST Auth
+    before_filter :digest_authentication
+
+    # --------------------------------------------------
+    #     About Post Model
+    # --------------------------------------------------
+
     def index
         @posts = Post.all
+        @categories = Category.all
+
+        @new_category = Category.new
     end
 
     def new
@@ -10,7 +27,7 @@ class PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
 
-        if params[:preview_button] || !@post.save
+        if !@post.save
             render 'new'
         else
            redirect_to @post
@@ -46,20 +63,83 @@ class PostsController < ApplicationController
       redirect_to posts_path
     end
 
+    # --------------------------------------------------
+    #     About Category Model
+    # --------------------------------------------------
+
+    # POST /category/create
+    def create_category
+        @new_category = Category.new(category_params)
+        @new_category.save
+        redirect_to posts_path
+    end
+
+    def update_category
+        @category = Category.find(params[:id])
+
+        @category.update_attributes(category_params)
+        redirect_to posts_path
+    end
+
+    def remove_category
+        @category = Category.find(params[:id])
+        @category.destroy
+
+        redirect_to posts_path
+    end
+
+    # --------------------------------------------------
+    #     Others
+    # --------------------------------------------------
+
     # POST /posts/convert_mark2html
     # Exchange ( Markdown of Textarea -> HTML for displaying Preview )
     # This Function Only used by AJax
     def convert_mark2html
         if params[:user_id] == "test-user"
-            render json: view_context.markdown(params[:contents]).html_safe
+            if params[:contents]
+                render json: view_context.markdown(params[:contents]).html_safe
+            else
+                render json: nil
+            end
         else
             render text: "failed"
         end
     end
 
+    # POST /posts/upload_image
+    # Upload Image by Drag & Drop to creating posts form ( /posts/new )
+    # This Function use for Cloudinary (heroku)
+    def upload_image
+        data=params[:file]
+        json = Cloudinary::Uploader.upload(data).to_json
+        # json = {
+        #     format_rev: "png",
+        #     secure_url: "https://res.cloudinary.com/hhokqdeq5/image/upload/v1443215165/jem6kezisqu6bhh0b1un.png",
+        #     original_filename:"small"
+        # }
+        puts json
+        render json: json
+    end
+
+
+    # --------------------------------------------------
+    #     Private
+    # --------------------------------------------------
+
     private
-        def post_params
-            params.require(:post).permit(:title, :contents, :tag_list)
+    def post_params
+        params.require(:post).permit(:title, :contents, :tag_list, :category_id, :is_valid, :is_draft)
+    end
+
+    def category_params
+        params.require(:category).permit(:name, :description, :image_url)
+    end
+
+    def digest_authentication
+        authenticate_or_request_with_http_digest do |name|
+          USERS[name]
         end
+    end
 
 end

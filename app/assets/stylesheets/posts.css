@@ -1,5 +1,6 @@
 /*
- *= require_self
+ *= require kickstart_rails
+ *= require normalize
  *= require posts_form
- *= require posts_highlight
- */
+ *= require articles_contents
+*/

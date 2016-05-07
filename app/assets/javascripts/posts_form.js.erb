@@ -1,0 +1,192 @@
+"use strict";
+
+var isChange = false;
+var timer // store setTimout id
+var commonmark = window.commonmark;
+var writer = new commonmark.HtmlRenderer({ sourcepos: true });
+var reader = new commonmark.Parser();
+
+
+function convertMarkDownToHtml() {
+    if(isChange){
+        var textarea = $("#input-contents");
+
+        // parse処理
+        var startTime = new Date().getTime();
+        var parsed = reader.parse(textarea.val());
+        var endTime = new Date().getTime();
+        var parseTime = endTime - startTime;
+        $("#parsetime").text(parseTime);
+
+        // render処理
+        startTime = new Date().getTime();
+        $("#posts-preview").html(writer.render(parsed));
+        endTime = new Date().getTime();
+        var renderTime = endTime - startTime;
+        $("#rendertime").text(renderTime);
+
+        // Syntax Highlight (Use "highlight.js")
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+            // lineNumbersBlock(block);
+        });
+
+        // Textarea と Preview要素の高さをそろえる
+        var currentPreviewHeight = $("td#posts-preview").height();
+        var currentTextareaHeight =  $("td#posts-textarea textarea").height();
+
+        // [ISSUE] previewのコンテンツの高さが増え続ける問題
+        if(currentPreviewHeight > currentTextareaHeight-14){
+            $("td#posts-textarea textarea").height(currentPreviewHeight-14);
+        }
+
+        MathJax.Hub.Typeset(["Typeset",MathJax.Hub, "posts-preview"]);
+
+        isChange = false;
+    }
+}
+
+function lineNumbersBlock (element) {
+    if (typeof element !== 'object') return;
+
+    var parent = element.parentNode;
+    var lines = getCountLines(parent.textContent);
+    var nbsp = String.fromCharCode( 160 );
+
+    if (lines > 1) {
+        var l = '';
+        for (var i = 0; i < lines; i++) {
+            l += (nbsp+nbsp+i).slice(-3) + '\n';
+        }
+
+        var linesPanel = document.createElement('code');
+        linesPanel.className = 'hljs hljs-line-numbers';
+        linesPanel.style.float = 'left';
+        linesPanel.style.textAlign = 'right';
+        linesPanel.textContent = l;
+
+        parent.insertBefore(linesPanel, element);
+    }
+}
+
+function getCountLines(text) {
+    if (text.length === 0) return 0;
+
+    var regExp = /\r\n|\r|\n/g;
+    var lines = text.match(regExp);
+    lines = lines ? lines.length : 0;
+
+    // 最終行に改行がある場合、+1する
+    if (!text[text.length - 1].match(regExp)) {
+        lines += 1;
+    }
+    return lines;
+}
+
+// textarea のカーソル位置にテキストを挿入する
+// http://d.hatena.ne.jp/spitfire_tree/20131209/1386575758
+function insertAtCaret(target, str){
+    var obj = $(target);
+    obj.focus()
+    // Case of IE
+    if(navigator.userAgent.match(/MSIE/)){
+        var r = document.selection.createRange()
+        r.text = str
+        r.select()
+    // Case of Others
+    }else{
+        var s = obj.val()
+        var p = obj.get(0).selectionStart
+        var np = p + str.length
+        obj.val(s.substr(0, p) + str + s.substr(p))
+        obj.get(0).setSelectionRange(np, np)
+    }
+}
+
+$(document).ready(function(){
+
+    // jQuery tag-it
+    // ul#article-tags にタグ入力フィールドを作成
+    $('#article-tags').tagit({
+        fieldName: 'post[tag_list]',
+        singleField: true,
+        availableTags: window.available_tag_list,
+        placeholderText: 'TAGS separated by commas'
+    });
+
+    // jQuery tag-it
+    // tag_list配列に要素がある（=記事がタグ情報を持っている）場合はその値を入力
+    if(tag_list.length > 0){
+        for(var i=0; i < tag_list.length; i++){
+          $('#article-tags').tagit('createTag', tag_list[i]);
+        }
+    }
+
+    if($('#input-contents').val() != ''){
+        isChange = true;
+        convertMarkDownToHtml();
+    }
+
+    // 半角英数の入力を検知
+    $('#input-contents').keypress(function() {
+        isChange = true;
+        timer && clearTimeout(timer);
+        timer = setTimeout(convertMarkDownToHtml, 500);
+        // convertMarkDownToHtml();
+    });
+    // deleteキーとbackspaceキーの入力を検知
+    $('#input-contents').keyup(function(e) {
+        if (e.keyCode == 46 || e.keyCode == 8){
+            isChange = true;
+            timer && clearTimeout(timer);
+            timer = setTimeout(convertMarkDownToHtml, 500);
+            // convertMarkDownToHtml();
+        }
+    });
+
+    // 画像のDrag&Dropのイベント実装
+    $('#input-contents').on('dragover', function(e){
+        console.log("dragover");
+      $('#input-contents').css('border', '4px green dashed');
+    });
+    $('#input-contents').on('dragleave', function(e){
+        console.log("dragleave");
+      $('#input-contents').css('border', '4px gray solid');
+    });
+    $('#input-contents').on('drop', function(e){
+        e.preventDefault();  // Invalid Browser Default Drag Action
+        var file = e.originalEvent.dataTransfer.files[0];
+        var formData = new FormData();
+        formData.append('file', file);
+        $.ajax({
+            method: 'POST',
+            url: "/posts/upload_image",
+            dataType:  "text",
+            contentType: false,
+            processData: false,
+            data: formData,
+            error: function(xhr, error){
+                console.log('アップデートに失敗しました');
+                console.log(error);
+            },
+            success: function(response){
+                var objImage = $.parseJSON(response);
+                var imageMarkdown = "!["+objImage['original_filename']+"."+objImage['format_rev']+"]("+objImage['secure_url']+")";
+                // ブログコンテンツのtextareaのキャラット位置にimgタグ追加
+                insertAtCaret('td#posts-textarea textarea#input-contents', imageMarkdown)
+                // プレビュー更新
+                convertMarkDownToHtml();
+                console.log(response);
+                console.log(objImage['original_filename']);
+                console.log('アップロードに成功しました');
+            },
+            complete:  function(xhr, status){
+                $('#input-contents').css('border', '4px gray solid');
+            }
+        });
+    });
+
+
+
+});
+

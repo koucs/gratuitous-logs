@@ -1,0 +1,128 @@
+
+<div id="left">
+      <span class="left_article_date">
+        <i class="fa fa-calendar"></i>&nbsp<%= @post.created_at.strftime("%Y/%m/%d %H:%M") %>
+      </span>
+
+      <table>
+        <TR>
+          <td id="left_article_sumbnail">
+            <%= image_tag(@post.category.image_url, alt: @post.category.description, name: @post.category.name, class: "left_article_sumbnail") %>
+          </td>
+          <td id="left_article_title">
+            <%= @post.title %>
+          </td>
+        </TR>
+      </table>
+
+      <hr>
+
+      <div id="left_article_tag_list">
+        <i class="fa fa-tags"></i>
+        <% @post.tags.order(:name).each do |tag| %>
+          <a href="/articles/list_by_tag/<%= tag.name %>">
+            <span class="left_article_tag"><%= "#{tag.name}(#{tag.taggings_count})" %></span>
+          </a>
+        <% end %>
+      </div>
+
+    <div id="left_article">
+      <%= @post.contents %>
+    </div>
+    <script type="text/javascript">
+    <!--
+        GlobalM2H.convertMarkdownToHtml($("#left_article").text(), "#left_article");
+      //-->
+    </script>
+
+
+    <table id="left_sns_button">
+      <tr id="line-1">
+        <td id="twitter-btn"  colspan="2">
+          <a class="twitter-btn"
+            href="http://twitter.com/?status=<%= @post.title %>'%20%7C%20 WevSTAT %20<%= request.url %>%20by%20%40kou_cs"
+            title="Tweet This"
+            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+          >
+            <span><i class="fa fa-twitter"></i></span> Twitter
+          </a>
+        </td>
+
+        <td id="fb-btn" colspan="2">
+          <a class="fb-btn"
+            href="http://www.facebook.com/sharer.php?u=<%= request.url %>&amp;t=<%= @post.title %>"
+            title="Send to Facebook"
+            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+          >
+            <span><i class="fa fa-facebook-square"></i></span> Facebook
+          </a>
+        </td>
+
+      </tr>
+
+      <tr>
+        <td id="gplus-btn" colspan="2">
+          <a class="gplus-btn"
+            href="https://plus.google.com/share?url=<%= request.url %>"
+            title="+1" rel="noreferrer"
+            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+          >
+            <span><i class="fa fa-google-plus"></i></span>
+          </a>
+        </td>
+
+        <td id="hatena-btn" colspan="2">
+          <a class="hatena-btn"
+            href="http://b.hatena.ne.jp/add?mode=confirm&url=<%= request.url %>&title=<%= @post.title %>'"
+            title="このエントリーをはてなブックマークに追加"
+            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+          >
+            <span>はてブ</span>
+          </a>
+
+        </td>
+<!--
+
+        <td id="pocket-btn">
+         <a class="pocket-btn"
+            href="http://getpocket.com/edit?url=<%= request.url %>&title=<%= @post.title %>"
+            title="Save to Pocket"
+            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+          >
+            <span><i class="fa fa-get-pocket"></i></span>
+          </a>
+        </td>
+
+        <td id="feedly-btn">
+        </td>
+ -->
+
+      </tr>
+    </table>
+
+
+
+    <div id="left_comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES * * */
+          var disqus_shortname = 'wevstat';
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>
+        Please enable JavaScript to view the
+        <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+      </noscript>
+    </div><!-- #left_contents -->
+
+</div><!-- #inner -->
+
+<div id="right">
+    <%= render 'right_contents', tags:  @tags %>
+</div><!-- #sub -->

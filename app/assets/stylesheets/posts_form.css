@@ -1,6 +1,61 @@
+@font-face {
+   font-family: 'MyWebfont';  /* Change this to whatever you like. */
+   src: url('mywebfont-regular.ttf') format('truetype');  /* The "regular" font resource. */
+   font-style: normal;  /* Associates values of "normal" with this resource. */
+   font-weight: normal;  /* As above for weight. */
+}
+
+@font-face {
+   font-family: 'MyWebfont';  /* Importantly, the same as in the above block; the family name. */
+   src: url('mywebfont-italic.ttf') format('truetype');
+   font-style: italic;  /* Associates values of "italic" with this resource. */
+   font-weight: normal;  /* ... It's not a bold-italic font style. */
+}
+
+body{
+  background-color: #333333;
+}
+
+ul, ol{
+    margin-bottom: 0;
+}
+
+#header{
+  height: 75px;
+}
+
+#container {
+    width: 1024px;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px 30px;
+    font-size: 14px;
+    position: relative;
+    clear: left;
+    line-height: 1.4em;
+    background-color: white;
+}
+
+#container:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+table#contents-table {
+  vertical-align: middle;
+}
+
+table#contents-table  th{
+  width: 150px;
+}
+table#contents-table  tr input{
+  width: 750px;
+}
+
 table#posts-table {
    table-layout: fixed;
-   width: 130%;
+   width: 100%;
 }
 
 table#posts-table tr{
@@ -8,39 +63,87 @@ table#posts-table tr{
 }
 
 table#posts-table td#posts-textarea{
-  background-color: #FFFFFF;
+  margin: 0;
+  padding: 0;
   font-size: 9px;
+  width: 50%;
 }
 
 table#posts-table td#posts-textarea textarea{
-    font-size: 1rem;
+  height: 300px;
+  border: 4px gray solid;
+  font-size: 16px;
+  line-height: 1.3;
+  color: #ECEEF1;
+  background-color: #333333;
+  width: 100%;
 }
 
 table#posts-table td#posts-preview{
-  background-color: #181818;
-  font-size: 9px;
-  color: #ECEEF1;
+  padding: 2px 5px;
+  width: 50%;
+  background-color: #fcfcfc;
+  font-color: #ECEEF1;
 }
 
-table#posts-table td#posts-preview{
+/* --------------------------------------------------------------------- */
+/*   /posts/indexのテーブル関連   */
+/* --------------------------------------------------------------------- */
+
+table#post_table{
+  width: 100%;
+  text-align: center;
+}
+table#post_table tr {
+  border-style: none dashed 1px;
+  border-right: 1px dashed;
 }
 
-h3 {
-    padding-left: 5px;
-  font-size: 25px;
-  color: #ECEEF1;
+table#post_table th{
+  white-space: nowrap;
+  background-color: #B3BAC7;
+  width: 100px;
+  border-left: 1px dashed;
+}
+table#post_table th.post_table_id{
+  width: 30px;
+}
+table#post_table th.post_table_title{
+  width: 320px;
+}
+table#post_table th.post_tags{
+  font-size: 7px;
+}
+table#post_table td{
+  border-left: 1px dashed;
 }
 
-hr {
-    border: 0;
-    margin-top: 0;
-    height:2px;
-    background: #99999e;
-    background: #ccc;
-    background: -webkit-gradient(linear, left top, right top, from(#333), color-stop(0.7,#ccc), color-stop(0.7,#ccc), to(#333));
-    background: -moz-linear-gradient(left,#333 0%, #ccc 30%, #ccc 70%, #333 100%);
-    background: -o-linear-gradient(left,#333 0%, #ccc 30%, #ccc 70%, #333 100%);
-    background: -ms-linear-gradient(left,#333 0%, #ccc 30%, #ccc 70%, #333 100%);
-    background: linear-gradient(left,#333 0%, #ccc 30%, #ccc 70%, #333 100%);
-    -pie-background: linear-gradient(left,#333 0%, #ccc 30%, #ccc 70%, #333 100%);
+
+table#category_table{
+  width: 100%;
+  text-align: center;
+}
+table#category_table th{
+  white-space: nowrap;
+  background: #B3BAC7;
+  width: 100px;
+  border-left: 1px dashed;
+}
+table#category_table th.category_table_id{
+  width: 40px;
+}
+table#category_table th.category_table_description{
+  width: 100px;
+}
+table#category_table th.category_table_image{
+  width: 220px;
+}
+table#category_table tr.new{
+  background-color: rgba(230,180,80, .4);
+}
+table#category_table td{
+  word-break : break-all;
+  vertical-align: middle;
+  border-left: 1px dashed;
+
 }

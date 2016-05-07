@@ -1,20 +1,22 @@
 .highlight {
   font-family: Consolas,"Liberation Mono",Courier,monospace;
-  font-size: 12px;
-  font-size: .65em;
+  font-size:  11px;
+  line-height: 1.8;
   border: 1px solid #efefef;
-  border-left: 2em solid #efefef;
+  border-left: 3.5em solid #efefef;
   border-radius: 2px;
   position: relative;
-  counter-reset: linenumbers;
+  /*overflow: scroll;*/
+  overflow-x: auto;
 
-  line-height: 1.4;
-  padding: 12px;
-  padding-right: 0;
+  padding: 5px 12px;
   margin-bottom: 16px;
   background-color: #333;
-  xoverflow: scroll;
+  color: #fff;
+
+  counter-reset: linenumbers;
 }
+
 .highlight .hll { background-color: #333333 }
 .highlight .c { color: #008800; font-style: italic; background-color: #0f140f } /* Comment */
 .highlight .err { color: #ffffff } /* Error */

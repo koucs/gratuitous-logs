@@ -22,6 +22,8 @@ gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -45,11 +47,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # gem 'debugger', group: [:development, :test]
 
 # Source Map
-gem 'coffee-rails-source-maps'
-gem 'sass-rails-source-maps'
+# gem 'coffee-rails-source-maps'
+# gem 'sass-rails-source-maps'
 
 # CSS Support
-gem 'less-rails'
+# gem 'less-rails'
 
 # App Server
 gem 'puma'
@@ -93,7 +95,31 @@ gem 'figaro'
 # Rack Profiler
 gem 'rack-mini-profiler'
 
-# Hash extensionsgem 'hashie'
+
+# Syntax Highlight
+gem "redcarpet" # parse Markdown
+gem "pygments.rb" # parse
+
+# Tag Function
+gem 'acts-as-taggable-on', '~> 3.4'
+
+# For use Cloudinary
+# http://qiita.com/GenTamura84/items/38cf899827bba050a21c
+gem 'carrierwave'
+gem 'cloudinary'
+
+gem 'disqus'
+
+gem 'meta-tags'
+
+# Use Sass 3.4 and above.
+gem 'sass', '~> 3.4'
+
+# Add the kickstart_rails gem
+gem 'kickstart_rails', '~> 3'
+
+# Add autoprefixer
+gem 'autoprefixer-rails'
 
 group :development do
   # Converter erb => haml
@@ -143,11 +169,3 @@ group :production, :staging do
   # ログ保存先変更、静的アセット Heroku 向けに調整
   gem 'rails_12factor'
 end
-
-# Syntax Highlight
-gem "redcarpet" # parse Markdown
-gem "pygments.rb" # parse
-
-# Tag Function
-gem 'acts-as-taggable-on', '~> 3.4'
-gem 'jquery-ui-rails'

@@ -1,15 +1,36 @@
 Rails.application.routes.draw do
 
-  get 'home/index'
-
   resources :posts do
     resources :comments
     collection do
+      # About Category Model
+      post :create_category
+      post :update_category
+      delete :delete_category
+
       post :convert_mark2html
+      post :upload_image
     end
   end
 
-  root 'posts#index'
+  resources :articles, :only => [:index, :show] do
+    collection do
+      get 'list_recently' => 'articles#index'
+      get 'list_by_tag/:tag_name' => 'articles#list_by_tag'
+      get 'list_by_category/:category_id' => 'articles#list_by_category'
+    end
+  end
+
+  resources :contact, :only => [:new, :create] do
+    collection do
+      get 'profile'
+      post 'confirm'
+    end
+  end
+
+  resources :home, only: [:index]
+
+  root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

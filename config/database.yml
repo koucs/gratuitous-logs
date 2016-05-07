@@ -1,0 +1,31 @@
+
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  port: 5432
+
+development:
+  <<: *default
+  database: gratuitous_log
+  host: localhost
+
+test:
+  <<: *default
+  database: gratuitous_log_test
+  host: localhost
+
+production:
+  <<: *default
+  host: <%= ENV['HEROKU_BLOG_HOST'] %>
+  database: <%= ENV['HEROKU_BLOG_DB'] %>
+  username: <%= ENV['HEROKU_BLOG_USER'] %>
+  password: <%= ENV['HEROKU_BLOG_PASSWD'] %>
+
+production_local:
+  <<: *default
+  host: <%= ENV['HEROKU_BLOG_HOST'] %>
+  database: <%= ENV['HEROKU_BLOG_DB'] %>
+  username: <%= ENV['HEROKU_BLOG_USER'] %>
+  password: <%= ENV['HEROKU_BLOG_PASSWD'] %>
+  sslmode: require
