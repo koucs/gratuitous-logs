@@ -1,5 +1,6 @@
 class ContactController < ApplicationController
   def new
+    prepare_meta_tags( title: "CONTACT" )
     @contact_data = {
         "name": "",
         "subject": "",
@@ -11,7 +12,7 @@ class ContactController < ApplicationController
   end
 
   def create
-    puts params
+    prepare_meta_tags( title: "CONTACT" )
     @contact_data = params["contact_data"]
 
     subject = "【koucs.com】"+@contact_data["subject"]
@@ -25,7 +26,7 @@ class ContactController < ApplicationController
   end
 
   def confirm
-    puts params
+    prepare_meta_tags( title: "CONTACT" )
     @contact_data = params["contact_data"]
 
     flash[:error_message] = ""

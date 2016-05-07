@@ -12,9 +12,9 @@ class ApplicationController < ActionController::Base
     # コントローラからの呼び出しで初期値の設定
     def prepare_meta_tags(options={})
         puts options
-        site = "WevSTAT by kou_cs"
-        title = [controller_name, action_name].join(" ")
-        description = "kou_csのRuby on Rails等の技術メモ、機械学習の勉強過程をブログにまとめています。"
+        site = "WevSTAT."
+        title = "BLOG"
+        description = "@kou_csのRuby on Rails等の技術メモ、機械学習の勉強過程をブログにまとめています。"
         image = options[:image] || "your-default-image-url"
         current_url = request.url
 
@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
         defaults = {
           site: site,
           title: title,
+          reverse: true,
           image: image,
           description: description,
           keywords: "Webデザイン,Ruby,Rails,機械学習,Python,英語,資格勉強",

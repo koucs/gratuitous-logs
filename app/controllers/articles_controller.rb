@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    prepare_meta_tags( title: @post.title + " | 記事" )
+    prepare_meta_tags( title: @post.title )
   end
 
   # Find by Category_ID
