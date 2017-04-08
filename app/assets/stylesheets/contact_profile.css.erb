@@ -1,4 +1,6 @@
-
+/* CSS design by @jofpin */
+@import url(http://fonts.googleapis.com/css?family=Raleway|Varela+Round|Coda);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
 
  body{
     background: linear-gradient(rgba(0,0,0,.5) 60%, rgba(24,24,24,.5)), url('<%= asset_path("hero-okinawa-sky-diet_mobile.png") %> ') center center / cover no-repeat;
@@ -56,6 +58,87 @@
     /* Cells in odd rows (1,3,5...) are another (excludes header cells)  */
     .wrapper table#profile tr:nth-child(odd) td { background: #FEFEFE; }
 
+.user-profile {
+  margin: auto;
+    width: 47em; 
+  height: 14.5em;
+  background: rgb(55, 56, 57);
+  border-radius: .2em;
+  text-align: left;
+}
+
+.user-profile  .username {
+  margin: auto;
+  margin-top: -7.5em;
+  margin-left: 9.50em;
+  color: rgb(230,180,80);;
+  font-size: 1.53em;
+  font-weight: bold;
+}
+.user-profile  .bio {
+  margin: auto;
+  display: inline-block;
+  margin-left: 17.03em;
+  color: #e76043; 
+  font-size: .87em;
+  font-family: "varela round", sans-serif;
+}
+.user-profile > .description {
+  width: 20em;
+  margin-top: 1em;
+  margin-left: 17.03em;
+  color: #c0c5c5; 
+  font-size: .87em;
+  font-family: "varela round", sans-serif;
+}
+.user-profile > .info {
+  width: 37em;
+  margin-top: 1em;
+  margin-left: 17.03em;
+  color: #c0c5c5; 
+  font-size: .87em;
+  font-family: "varela round", sans-serif;
+}
+.user-profile > .info th {
+   padding-left: 0;
+   width: 7em;
+}
+.user-profile > .info td {
+   padding-left: 1.03em;
+}
+
+
+.user-profile > img.avatar {
+  padding: .9em;
+  margin-left: .9em;
+  margin-top: .9em;
+  height: 10.23em;
+  width: 10.23em;
+  border-radius: 25em;
+}
+
+.user-profile ul.data {
+    margin: 2em auto;
+    height: 1.70em;
+  background: #e6b450;
+  text-align: center;
+  border-radius: 0 0 .3em .3em;
+}
+.user-profile li {
+    margin: 0 auto;
+  padding: 1.30em; 
+  width: 33.33334%;
+  display: table-cell;
+  text-align: center;
+}
+
+.user-profile span {
+    font-family: "varela round", sans-serif;
+    color: #e6b450;
+  white-space: nowrap;
+  font-size: 1.27em;
+  font-weight: bold;
+}
 
 /* MEDIA QUERIES */
 @media screen and (min-width: 760px ) {
