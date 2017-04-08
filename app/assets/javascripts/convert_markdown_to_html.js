@@ -3,7 +3,7 @@
 var GlobalM2H = {};
 
 GlobalM2H.commonmark = window.commonmark;
-GlobalM2H.writer = new commonmark.HtmlRenderer({ sourcepos: true });
+GlobalM2H.writer = new commonmark.HtmlRenderer({ sourcepos: true, smart: true, safe: true});
 GlobalM2H.reader = new commonmark.Parser();
 
 GlobalM2H.defaultOutputArea = $("#posts-preview");
