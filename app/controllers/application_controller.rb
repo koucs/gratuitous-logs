@@ -13,9 +13,9 @@ class ApplicationController < ActionController::Base
     def prepare_meta_tags(options={})
         puts options
         site = "WevSTAT."
-        title = "BLOG"
-        description = "@kou_csのRuby on Rails等の技術メモ、機械学習の勉強過程をブログにまとめています。"
-        image = options[:image] || "your-default-image-url"
+        title = options[:title]  || "BLOG"
+        description = "Tech Blog of @kou_cs" 
+        image = options[:image] || "http://pbs.twimg.com/profile_images/686205764826824705/7tYsuN7k.png"
         current_url = request.url
 
         # Let's prepare a nice set of defaults

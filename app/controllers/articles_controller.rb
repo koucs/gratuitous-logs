@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    prepare_meta_tags( title: @post.title )
+    prepare_meta_tags( title: @post.title, image: @post.category.image_url )
   end
 
   # Find by Category_ID
