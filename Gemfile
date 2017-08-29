@@ -84,7 +84,7 @@ gem 'kaminari'
 gem 'newrelic_rpm'
 
 # Airbrake
-gem 'airbrake'
+# gem 'airbrake'
 
 # HTML Parser
 gem 'nokogiri'

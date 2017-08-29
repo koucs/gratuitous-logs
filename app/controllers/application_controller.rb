@@ -32,7 +32,8 @@ class ApplicationController < ActionController::Base
             site: '@kou_cs',
             card: 'summary',
             description: description,
-            image: image
+            image: image,
+            title: title
           },
           og: {
             url: current_url,
