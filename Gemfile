@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.2.7'
+ruby '2.4.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.7'
+gem 'rails', '4.2.10'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -26,7 +26,7 @@ gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -101,7 +101,7 @@ gem "redcarpet" # parse Markdown
 gem "pygments.rb" # parse
 
 # Tag Function
-gem 'acts-as-taggable-on', '~> 3.4'
+gem 'acts-as-taggable-on', '~> 4.0'
 
 # For use Cloudinary
 # http://qiita.com/GenTamura84/items/38cf899827bba050a21c
@@ -119,7 +119,7 @@ gem 'sass', '~> 3.4'
 gem 'kickstart_rails', '~> 3'
 
 # Add autoprefixer
-gem 'autoprefixer-rails'
+# gem 'autoprefixer-rails'
 
 group :development do
   # Converter erb => haml

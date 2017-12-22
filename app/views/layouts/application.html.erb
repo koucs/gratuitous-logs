@@ -16,12 +16,12 @@
 
   <link rel="shortcut icon" href="<%= asset_path("favicon.ico") %>">
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true,  :debug => true %>
-  <%= stylesheet_link_tag     controller.controller_name , media: "all", "data-turbolinks-track" => true,  :debug => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', :debug => true %>
+  <%= stylesheet_link_tag     controller.controller_name , media: "all",  :debug => true %>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag controller.controller_name , "data-turbolinks-track" => true %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag controller.controller_name  %>
 
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
