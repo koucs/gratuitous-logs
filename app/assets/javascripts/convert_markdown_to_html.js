@@ -3,7 +3,8 @@
 var GlobalM2H = {};
 
 GlobalM2H.commonmark = window.commonmark;
-GlobalM2H.writer = new commonmark.HtmlRenderer({ sourcepos: true, smart: true, safe: true});
+// safe: trueとした場合、markdown内にhtmlを埋め込んでも省略される
+GlobalM2H.writer = new commonmark.HtmlRenderer({ sourcepos: true, smart: true, safe: false});
 GlobalM2H.reader = new commonmark.Parser();
 
 GlobalM2H.defaultOutputArea = $("#posts-preview");
@@ -22,4 +23,4 @@ GlobalM2H.convertMarkdownToHtml = function(inputText, outputAreaName){
     });
 
     MathJax.Hub.Typeset(["Typeset",MathJax.Hub, outputAreaName]);
-}
+};

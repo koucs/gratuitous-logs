@@ -29,7 +29,7 @@
     </tr>
     <tr>
       <th><%= f.label :category_id, "TAGS" %></th>
-      <td><ul id="article-tags"></td>
+      <td><ul id="article-tags"></ul></td>
     </tr>
   </tbody>
 </table>
@@ -41,7 +41,7 @@
     </p>
     <div id="left_article">
       <table id="posts-table" class="table">
-        <trj>
+        <tr>
           <td id="posts-textarea"><%= f.text_area :contents, rows: 40, id: "input-contents" %></td>
           <td id="posts-preview"></td>
         </tr>

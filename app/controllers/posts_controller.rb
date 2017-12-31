@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     protect_from_forgery
 
     # DIGEST Auth
-    before_filter :digest_authentication
+    before_action :digest_authentication
 
     # --------------------------------------------------
     #     About Post Model
