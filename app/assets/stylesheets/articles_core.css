@@ -179,6 +179,57 @@ span.right_sub{
     color: #3a7999;
 }
 
+/* pagination (kaminari) 関連のstyle */
+#left nav.pagination {
+    text-align: center;
+}
+#left nav.pagination span.current {
+    border: 2px solid #ed9326;
+    opacity: 0.80;
+    color: #4A4A4A;
+    display: inline-block;
+    margin: 0 5px 5px 0;
+    padding: 0 6px;
+    line-height: 30px;
+    border-radius: 3px;
+    transition: all 500ms ease;
+}
+
+#left nav.pagination a {
+    background-color: #4A4A4A;
+    border: 2px solid #4A4A4A;
+    opacity: 0.80;
+    color: #fff;
+    display: inline-block;
+    margin: 0 5px 5px 0;
+    padding: 0 6px;
+    line-height: 30px;
+    border-radius: 3px;
+    transition: all 500ms ease;
+}
+#left nav.pagination a:hover{
+    background: white;
+    color: #4A4A4A;
+}
+
+#left nav.pagination span.page a {
+    background-color: #ed9326;
+    border: 2px solid #ed9326;
+    opacity: 0.80;
+    color: #fff;
+    display: inline-block;
+    margin: 0 5px 5px 0;
+    padding: 0 6px;
+    line-height: 30px;
+    border-radius: 3px;
+    transition: all 500ms ease;
+}
+#left nav.pagination span.page a:hover{
+    background: white;
+    color: #4A4A4A;
+}
+
+
 /* MEDIA QUERIES */
 @media screen and (min-width: 760px ) {
 /*   #left { margin-right: 19.5em; } */
