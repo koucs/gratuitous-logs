@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @posts.order("updated_at DESC").each do |post| %>
+    <% @posts.each do |post| %>
       <tr>
         <td><%= post.id %></td>
         <td><%= post.updated_at.to_date %></td>
@@ -35,6 +35,10 @@
     <% end %>
   </tbody>
 </table>
+
+<br />
+
+<%= paginate @posts %>
 
 <br />
 

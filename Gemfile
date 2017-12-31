@@ -118,8 +118,6 @@ gem 'sass', '~> 3.4'
 # Add the kickstart_rails gem
 gem 'kickstart_rails', '~> 3'
 
-# Add autoprefixer
-# gem 'autoprefixer-rails'
 
 group :development do
   # Converter erb => haml

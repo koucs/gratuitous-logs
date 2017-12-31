@@ -2,8 +2,12 @@ class ArticlesController < ApplicationController
 
   before_action :before_load_tags
 
+  PER = 2
+
   def index
+    # @posts = Post.all.valid.order('created_at DESC')
     @posts = Post.all.valid.order('created_at DESC')
+                 .page(params[:page]).per(PER)
     @message = "最近の投稿"
 
     prepare_meta_tags( title: "最近の投稿一覧" )
@@ -22,6 +26,8 @@ class ArticlesController < ApplicationController
   def list_by_category
     @category = Category.find(params[:category_id])
     @posts = Post.valid.where(category_id: @category.id)
+                 .page(params[:page]).per(PER)
+
     if @posts.count != 0
       @message = '"' + @category.name + '"カテゴリに関連する投稿'
     else
@@ -36,6 +42,8 @@ class ArticlesController < ApplicationController
   def list_by_tag
     @tag = params[:tag_name]
     @posts = Post.valid.tagged_with(@tag)
+                 .page(params[:page]).per(PER)
+
     if @posts.count != 0
       @message = '"' + @tag.to_s + '" タグに関連する投稿'
     else
