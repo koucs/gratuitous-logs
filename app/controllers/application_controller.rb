@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
         site = "WevSTAT."
         title = options[:title]  || "BLOG"
         description = "Tech Blog of @kou_cs" 
-        image = options[:image] || "http://pbs.twimg.com/profile_images/686205764826824705/7tYsuN7k.png"
+        image = options[:image] || "https://pbs.twimg.com/profile_images/686205764826824705/7tYsuN7k.png"
         current_url = request.url
 
         # Let's prepare a nice set of defaults
