@@ -8,7 +8,7 @@
         <%= @message %>
     </h3>
 
-    <% @posts.each do |post| %>
+    <% @posts.each_with_index do |post, index| %>
         <div id="post-<%= post.id %>" class="left_article_list">
             <a href="/articles/<%= post.id %>">
                 <table>
@@ -35,6 +35,21 @@
                 </table>
             </a>
         </div><!-- #post-(post-id) -->
+
+        <% if (index) % 2 == 1 %>
+            <div id="post-add" class="left_article_list" style="height:160px;width:100%;">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-format="fluid"
+                     data-ad-layout-key="-g5-51+jz-44-18y"
+                     data-ad-client="ca-pub-2710339298738466"
+                     data-ad-slot="7086108488"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        <% end %>
     <% end %>
   <%= paginate @posts %>
 </div><!-- #left -->
