@@ -181,7 +181,10 @@ span.right_sub{
 
 /* pagination (kaminari) 関連のstyle */
 #left nav.pagination {
+    padding-top: 20px;
+    padding-bottom: 0;
     text-align: center;
+    font-size: 30px
 }
 #left nav.pagination span.current {
     border: 2px solid #ed9326;
