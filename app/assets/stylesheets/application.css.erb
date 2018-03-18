@@ -22,7 +22,6 @@ body{
   counter-reset: linenumbers; /* syntax highligh用 */
   font: normal 15px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
   -webkit-font-smoothing: antialiased;
-  height: 100vh;
   background-color: #181818;
   word-break: break-all;
 }
@@ -162,23 +161,32 @@ header nav i.fa {
 }
 
 #hero-image {
-  height: 78vh;
-  xbackground-image: url('<%= asset_path("hero-okinawa-sky-diet.JPG") %> ');
-  xbackground: linear-gradient(-45deg, rgba(229,93,135,.7), rgba(95,195,228,.7)), url('<%= asset_path("hero-okinawa-sky-diet.JPG") %> ') center center / cover no-repeat;
-  xbackground: linear-gradient( cyan, transparent), linear-gradient( -45deg, magenta, transparent), linear-gradient( 45deg, yellow, transparent), url('<%= asset_path("background-sky-diet.JPG") %> ') center center / cover no-repeat;
-  xbackground-blend-mode: multiply;
-  xbackground: linear-gradient(rgba(0,0,0,0) 60%, rgba(24,24,24,1)), url('<%= asset_path("hero-okinawa-sky-diet.JPG") %> ') center center / cover no-repeat;
+  height: 79vh;
 }
+
 
 .wrapper{
   text-align: center;
+  animation-name: img-ani;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
 }
+
+@keyframes img-ani {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 
 .ghost-button-1 {
   width: 50px;
   margin: 0 auto;
-  padding: .5em 4em;
-  font-size: 24px;
+  padding: 0.1em 1.5em;
+  font-size: 45px;
   color: #444;
   text-align: center;
   text-decoration: none;
@@ -189,9 +197,6 @@ header nav i.fa {
   outline-color: rgba(4,4,4,1);
   outline-offset: 0;
   transition: all 1s cubic-bezier(0.19,1,.22,1);
-
-  -moz-box-sizing: none;
-  box-sizing: none;
 }
 .ghost-button-1:hover {
   border: 1px solid;
