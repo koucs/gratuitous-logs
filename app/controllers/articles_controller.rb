@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
   before_action :before_load_tags
 
-  PER = 2
+  PER = ENV['ARTICLE_NUM_PER_PAGE']
 
   def index
     # @posts = Post.all.valid.order('created_at DESC')
