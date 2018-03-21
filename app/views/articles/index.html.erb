@@ -37,7 +37,7 @@
         </div><!-- #post-(post-id) -->
 
         <% if (index) % ENV['INFEED_ADSENSE_DIVISOR_NUM'].to_i == ENV['INFEED_ADSENSE_REMAINDER_NUM'].to_i %>
-            <div id="post-add" class="left_article_list" style="height:100%;width:100%;">
+            <div id="post-ad-<%= index %>" class="left_article_list">
               <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
               <ins class="adsbygoogle"
                    style="display:block"
