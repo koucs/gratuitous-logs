@@ -25,7 +25,7 @@
     background-color: #fff;
 }
 #right{
-    padding: 1.25em;
+    padding: 0.5em;
     background-color: #fff;
 }
 
@@ -146,14 +146,14 @@ div[id^="post-ad-"] {
 }
 
 h1.right_sub{
-    margin-right: -1.25em;
+    margin-right: 0.5em;
     border-bottom: 1px solid;
     border-color: rgba(56, 56,56, 0.2);
     font-size: 15px;
 }
 span.right_sub{
-    margin: 0 0 -1px -1.15em;
-    padding: 0 0 5px 1.15em;
+    margin: 0 0 -1px -0.5em;
+    padding: 0 0 5px 10px;
     display: inline-block;
     border-bottom: 1px solid;
     border-color: #ed9326;
@@ -184,19 +184,19 @@ span.right_sub{
     color: #3a7999;
 }
 
-#right .right_latest_articles td{
+#right .st_articles td{
     padding: 2px 3px;
     vertical-align: middle;
 }
 
 #right .right_latest_articles img.article_image{
-    width: 80px;
-    padding: 1px 3px;
+    width: 100px;
+    padding: 1px 3px 1px 0;
     display: inline-block;
     vertical-align: middle;
 }
 #right .right_latest_articles span.article_title{
-    font-size: 10px;
+    font-size: 12px;
     display: inline-block;
     line-height: 150%;
 }
