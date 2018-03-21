@@ -16,9 +16,9 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.valid.find(params[:id])
     prepare_meta_tags( title: @post.title, image: @post.category.image_url )
-    @latest_posts = Post.order(:created_at).limit(5)
+    @latest_posts = Post.all.valid.order('created_at DESC').limit(5)
   end
 
   # Find by Category_ID
