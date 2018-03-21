@@ -5,11 +5,9 @@ class ArticlesController < ApplicationController
   PER = ENV['ARTICLE_NUM_PER_PAGE']
 
   def index
-    # @posts = Post.all.valid.order('created_at DESC')
     @posts = Post.all.valid.order('created_at DESC')
                  .page(params[:page]).per(PER)
     @message = "最近の投稿"
-
     prepare_meta_tags( title: "最近の投稿一覧" )
     respond_to do |format|
       format.html
@@ -20,6 +18,7 @@ class ArticlesController < ApplicationController
   def show
     @post = Post.find(params[:id])
     prepare_meta_tags( title: @post.title, image: @post.category.image_url )
+    @latest_posts = Post.order(:created_at).limit(5)
   end
 
   # Find by Category_ID
@@ -42,7 +41,8 @@ class ArticlesController < ApplicationController
   def list_by_tag
     @tag = params[:tag_name]
     @posts = Post.valid.tagged_with(@tag)
-                 .page(params[:page]).per(PER)
+                 .page(params[:page])
+                 .per(PER)
 
     if @posts.count != 0
       @message = '"' + @tag.to_s + '" タグに関連する投稿'
@@ -64,6 +64,8 @@ class ArticlesController < ApplicationController
 
   private
   def before_load_tags
-    @tags = Post.tag_counts_on(:tags)
+    # タグ数をlimitで指定
+    # http://www.workabroad.jp/posts/2151
+    @tags = Post.tag_counts_on(:tags, limit: ENV['TAG_CLOUD_PER_PAGE'].to_i)
   end
 end

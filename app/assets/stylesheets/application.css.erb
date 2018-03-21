@@ -102,7 +102,12 @@ small {
 header {
   height: 85px;
   margin: 0 0 0 0;
-  background-color: rgba(24,24,24,.5);
+  background-color: rgba(24,24,24,.6);
+  position: fixed; /* ヘッダーを固定(これが重要) */
+  top: 0; /* 固定する位置 */
+  left: 0; /* 固定する位置 */
+  right: 0;  /* 固定する位置 */
+  z-index:100;
 }
 
 header h1 {
@@ -128,6 +133,13 @@ header h1 {
   height: 100%;
   transform: rotate3d(0,0,1,-45deg) translate3d(0,-120%,0);
 }
+
+#container {
+  width: 950px;
+  height: 100%;
+  margin: 85px auto 0;
+}
+
 @-webkit-keyframes shine {
   0% {transform: rotate3d(0,0,1,-45deg) translate3d(0,-120%,0);background: rgba(255,255,255,0.5);}
   100% {transform: rotate3d(0,0,1,-25deg) translate3d(0,150%,0);background: rgba(255,255,255,0.5);}
