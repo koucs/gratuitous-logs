@@ -16,9 +16,12 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @post = Post.valid.find(params[:id])
+    target_id = params[:id]
+    @post = Post.valid.find(target_id)
     prepare_meta_tags( title: @post.title, image: @post.category.image_url )
-    @latest_posts = Post.all.valid.order('created_at DESC').limit(5)
+    # call where method and not
+    # https://stackoverflow.com/questions/5426421/rails-model-find-where-not-equal
+    @latest_posts = Post.all.valid.where.not(id: target_id).order('created_at DESC').limit(5)
   end
 
   # Find by Category_ID
