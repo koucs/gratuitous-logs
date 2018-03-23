@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
                  .page(params[:page]).per(PER)
     @message = "最近の投稿"
     prepare_meta_tags( title: "最近の投稿一覧" )
+    @latest_posts = Post.all.valid.order('created_at DESC').limit(5)
     respond_to do |format|
       format.html
       format.rss
@@ -29,6 +30,7 @@ class ArticlesController < ApplicationController
     @category = Category.find(params[:category_id])
     @posts = Post.valid.where(category_id: @category.id)
                  .page(params[:page]).per(PER)
+    @latest_posts = Post.all.valid.order('created_at DESC').limit(5)
 
     if @posts.count != 0
       @message = '"' + @category.name + '"カテゴリに関連する投稿'
@@ -46,6 +48,7 @@ class ArticlesController < ApplicationController
     @posts = Post.valid.tagged_with(@tag)
                  .page(params[:page])
                  .per(PER)
+    @latest_posts = Post.all.valid.order('created_at DESC').limit(5)
 
     if @posts.count != 0
       @message = '"' + @tag.to_s + '" タグに関連する投稿'
