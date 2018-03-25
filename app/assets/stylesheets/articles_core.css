@@ -4,7 +4,7 @@
 }
 
 #container {
-    width: 950px;
+    width: 980px;
     height: 100%;
     margin: 85px auto 0;
     font-size: 14px;
@@ -277,5 +277,5 @@ span.right_sub{
 /*   #left { margin-right: 19.5em; } */
 /*    #right { position: absolute; top: 0; right: 0; width: 18.75em;} */
     #left { float: left; width: 690px;}
-    #right { float: right; width: 250px; }
+    #right { float: right; width: 280px; }
 }
