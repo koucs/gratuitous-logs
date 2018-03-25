@@ -148,6 +148,7 @@ div[id^="post-ad-"] {
 div[id^="right_latest_article-ad-"] {
     height: 100%;
     width: 100%;
+    padding-left: 2px;
 }
 
 h1.right_sub{
