@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
         puts options
         site = "WevSTAT."
         title = options[:title]  || "BLOG"
-        description = "Tech Blog of koucs" 
+        description = "Tech Blog" 
         image = options[:image] || "https://pbs.twimg.com/profile_images/686205764826824705/7tYsuN7k.png"
         current_url = request.url
 
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
           keywords: "Webデザイン,Ruby,Rails,機械学習,Python,英語,資格勉強",
           twitter: {
             site_name: site,
-            site: '@koucs',
+            site: '@kou_cs',
             card: 'summary',
             description: description,
             image: image,
