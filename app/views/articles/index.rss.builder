@@ -1,7 +1,7 @@
 xml.instruct! :xml, :version => "1.0"
 xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
   xml.channel do
-    xml.title "WevSTAT Blog by kou_cs POSTS"
+    xml.title "WevSTAT Blog by koucs POSTS"
 
     @posts.each do |post|
       xml.item do
