@@ -81,7 +81,7 @@ gem 'migrant'
 gem 'kaminari'
 
 # NewRelic
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
 
 # Airbrake
 # gem 'airbrake'

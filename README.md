@@ -16,7 +16,7 @@ Currently, this system is working here -> [WevSTAT](http://koucs.com)
 
 ## Install
 
-###Set up Rails app
+### Set up Rails app
 First, install the gems required by the application:
 
 ```
@@ -27,6 +27,12 @@ Next, execute the database migrations/schema setup:
 
 ```
 $ bundle exec rake db:setup
+```
+
+### Start Rails Server
+
+```
+$ ./bin/rails s
 ```
 
 
