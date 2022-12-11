@@ -35,6 +35,23 @@ $ bundle exec rake db:setup
 $ ./bin/rails s
 ```
 
+## Debug
+
+### connect to postgre sql server on Heroku
+
+```
+PGSSLMODE=require psql -h $HEROKU_BLOG_HOST -p 5432 -U $HEROKU_BLOG_USER -d $HEROKU_BLOG_DB -W
+```
+
+### DB URL
+
+`postgres://$HEROKU_BLOG_USER:$HEROKU_BLOG_PASSWD@$HEROKU_BLOG_HOST:5432/$HEROKU_BLOG_DB`
+
+### backup database
+
+```
+pg_dump -U $HEROKU_BLOG_USER -W -F p $HEROKU_BLOG_DB -h $HEROKU_BLOG_HOST > ./22-01-15_gra-gazing-duly-2681.sql
+```
 
 ## Licence
 
