@@ -24,8 +24,8 @@ production:
 
 production_local:
   <<: *default
-  host: <%= ENV['HEROKU_BLOG_HOST'] %>
-  database: <%= ENV['HEROKU_BLOG_DB'] %>
-  username: <%= ENV['HEROKU_BLOG_USER'] %>
-  password: <%= ENV['HEROKU_BLOG_PASSWD'] %>
+  host: <%= ENV['SUPABASE_HOST'] %>
+  database: <%= ENV['SUPABASE_DB'] %>
+  username: <%= ENV['SUPABASE_USER'] %>
+  password: <%= ENV['SUPABASE_PASSWD'] %>
   sslmode: require

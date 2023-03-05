@@ -43,4 +43,4 @@ doc/
 .secret
 
 # User Setting
-.envrc
+.envrc*
